@@ -12,6 +12,19 @@ http:
       type: path
   auth: inherit
 
+runtime:
+  scripts:
+    - type: tests
+      code: |-
+        test("Status code is 404 Not Found", function() {
+          expect(res.getStatus()).to.equal(404);
+        });
+
+        test("Response returns an array", function() {
+          const body = res.getBody();
+          expect(body).to.equal("The event was not found");
+        });
+
 settings:
   encodeUrl: true
   timeout: 0
