@@ -3,6 +3,7 @@
     <Project Path="src/EventsHub.Api/EventsHub.Api.csproj" />
     <Project Path="src/EventsHub.Application/EventsHub.Application.csproj" />
     <Project Path="src/EventsHub.Domain/EventsHub.Domain.csproj" />
+    <Project Path="src/EventsHub.OpenApi/EventsHub.OpenApi.csproj" />
     <Project Path="src/EventsHub.Persistence/EventsHub.Persistence.csproj" />
   </Folder>
 </Solution>

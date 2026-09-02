@@ -1,0 +1,21 @@
+{
+  "runtime": "Net100",
+  "documentGenerator": {
+    "fromDocument": {
+      "url": "../openapi/EventsHub.v1.json"
+    }
+  },
+  "codeGenerators": {
+    "openApiToCSharpClient": {
+      "generateClientClasses": true,
+      "generateClientInterfaces": true,
+      "generateExceptionClasses": true,
+      "exceptionClass": "ApiException",
+      "className": "{controller}RpcClient",
+      "operationGenerationMode": "MultipleClientsFromOperationId",
+      "namespace": "EventsHub.OpenApi.Client",
+      "jsonLibrary": "NewtonsoftJson",
+      "output": "../src/EventsHub.OpenApi/Generated/EventsHubRpcClient.generated.cs"
+    }
+  }
+}
