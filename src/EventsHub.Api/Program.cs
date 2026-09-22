@@ -1,3 +1,4 @@
+using EventsHub.Application.Events.Queries;
 using EventsHub.Persistence;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,6 +11,9 @@ builder.Services.AddDbContext<AppDbContext>(opt =>
     opt.UseSqlite(builder.Configuration.GetConnectionString("SqliteConnection"));
 });
 builder.Services.AddCors();
+builder.Services.AddMediatR(opt =>
+    opt.RegisterServicesFromAssemblyContaining<GetEventList.Handler>()
+);
 
 var app = builder.Build();
 
