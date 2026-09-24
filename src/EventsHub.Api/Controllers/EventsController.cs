@@ -1,7 +1,6 @@
 using EventsHub.Application.Events.Commands;
 using EventsHub.Application.Events.Queries;
 using EventsHub.Domain;
-using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EventsHub.Api.Controllers;
@@ -29,5 +28,15 @@ public class EventsController : EventsHubBaseController
     public async Task<ActionResult<string>> CreateEventAsync(Event @event)
     {
         return await Mediator.Send(new CreateEvent.Command { Event = @event });
+    }
+
+    [HttpPut]
+    [ProducesResponseType(typeof(void), StatusCodes.Status204NoContent)]
+    [ProducesResponseType(typeof(void), StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(void), StatusCodes.Status404NotFound)]
+    public async Task<ActionResult> EditEventAsync(Event @event)
+    {
+        await Mediator.Send(new EditEvent.Command { Event = @event });
+        return NoContent();
     }
 }
