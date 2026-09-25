@@ -15,7 +15,7 @@
       "operationGenerationMode": "MultipleClientsFromOperationId",
       "namespace": "EventsHub.OpenApi.Client",
       "jsonLibrary": "NewtonsoftJson",
-      "output": "../src/EventsHub.OpenApi/Generated/EventsHubRpcClient.generated.cs"
+      "output": "../EventsHub.OpenApi/Generated/EventsHubRpcClient.generated.cs"
     }
   }
 }
