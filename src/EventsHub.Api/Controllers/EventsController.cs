@@ -9,9 +9,9 @@ public class EventsController : EventsHubBaseController
 {
     [HttpGet]
     [ProducesResponseType(typeof(IReadOnlyList<Event>), StatusCodes.Status200OK)]
-    public async Task<ActionResult<IReadOnlyList<Event>>> GetEventsAsync()
+    public async Task<ActionResult<IReadOnlyList<Event>>> GetEventsAsync(CancellationToken cancellationToken)
     {
-        return await Mediator.Send(new GetEventList.Query());
+        return await Mediator.Send(new GetEventList.Query(), cancellationToken);
     }
 
     [HttpGet("{id}")]
