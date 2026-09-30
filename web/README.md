@@ -39,9 +39,16 @@ This is an early-stage app — worth knowing before extending it:
   `import.meta.env` base-URL config yet — if you add more API calls or need
   this to work against a non-`localhost:5001` backend, that's the first gap
   to close.
+- Only the list endpoint is used so far. The API also offers
+  `GET /Events/{id}`, `POST`, `PUT` and `DELETE` on the same route
+  (handled by MediatR handlers in `EventsHub.Application`), but the UI does
+  not call them yet. The generated typed client in `EventsHub.OpenApi` is
+  not used by this app either.
 - **`src/lib/types/index.d.ts`** declares shared types as *ambient* `type`
   declarations (e.g. `Activity`, which mirrors the backend's `Event`
-  entity/DTO — the frontend hasn't been renamed to match yet). Being a
+  entity/DTO — the frontend hasn't been renamed to match yet). Note that
+  `Activity` types `latitude`/`longitude` as `number`, while the backend
+  `Event` stores them as `string`. Being a
   `.d.ts` ambient declaration file, these types are globally available with
   no `import` statement; add new shared types here the same way rather than
   introducing per-file local type definitions for shapes coming from the API.

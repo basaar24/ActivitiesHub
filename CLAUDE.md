@@ -13,7 +13,8 @@ EventsHub is a school project (ICI 2026 01): a .NET 10 backend (Clean Architectu
 ```powershell
 dotnet build EventsHub.slnx                 # build everything
 dotnet run --project src/EventsHub.Api      # run the API (https://localhost:5001)
-dotnet test tests/EventsHub.UnitTests       # run all unit tests
+dotnet test tests/EventsHub.Application.UnitTests  # mapper tests (no database, no HTTP)
+dotnet test tests/EventsHub.UnitTests       # controller tests — currently does NOT compile (EventsControllerTests still calls new EventsController(AppDbContext))
 dotnet test tests/EventsHub.UnitTests --filter "FullyQualifiedName~EventsControllerTests"  # single fixture
 dotnet test tests/EventsHub.UnitTests --filter "Name=GetEventDetailAsync_WhenEventDoesntExist_ReturnsNotFound"  # single test
 ```

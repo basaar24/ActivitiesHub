@@ -20,6 +20,18 @@ It references `typeof(WeatherForecastController)` (not `typeof(Program)`) to
 get the `EventsHub.Api` assembly handle, because `Program` in that project
 is an internal top-level type and can't be referenced from here.
 
+Because the controllers are loaded reflectively, this project never runs the
+Api's `Program.cs`: no `AppDbContext`, MediatR or mapper registration.
+It only needs the controllers' routes and the `Event` type to describe them
+(see `AddControllersAsServices()` and the `Moq` package in its `.csproj`).
+It references `EventsHub.Api` and, through it, `Application` and `Domain`.
+
+The committed `src/openapi/EventsHub.v1.json` currently lists list, get,
+create and edit for `Events` plus `WeatherForecast`, but not the delete
+action that `EventsController` now has, so it (and the generated client) is
+out of date. Regenerate as described below after changing a route or the
+`Event` shape in `Domain`.
+
 Runs on its own launch profile (`https://localhost:5011;http://localhost:5010`)
 specifically so it doesn't collide with the real API on `5001`.
 

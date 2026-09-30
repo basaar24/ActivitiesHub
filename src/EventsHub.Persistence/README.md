@@ -20,6 +20,17 @@ Depends only on `EventsHub.Domain`.
   primary key, all other columns `NOT NULL`, `Date` stored as `TEXT`,
   `IsCancelled` as `INTEGER`). **Generated — never hand-edit.**
 
+## Who uses it
+
+- **`EventsHub.Application`** references this project; every MediatR handler
+  takes `AppDbContext` in its constructor and reads or writes `Events`
+  through it. There is no repository layer in between.
+- **`EventsHub.Api`** registers `AppDbContext` (`AddDbContext` +
+  `UseSqlite`) and runs `MigrateAsync()` + `SeedDataAsync` at startup. It
+  reaches this project through `EventsHub.Application`.
+- **`tests/EventsHub.UnitTests`** references it directly and builds its own
+  `AppDbContext` in `GlobalTestSetup`.
+
 ## Working with migrations
 
 Run from the repo root, with `Persistence` as `-p` (the project containing

@@ -29,14 +29,14 @@ The system SHALL create and return a new destination instance populated from the
 - **THEN** the system rejects the call with an argument error rather than returning a partially built object
 
 ### Requirement: Convention-based member matching
-The system SHALL, for a registered map, copy each destination member that has a source member with the same name and an assignable type, without a per-member rule.
+The system SHALL, for a registered map, copy each publicly writable destination member that has a readable source member with the same name and an assignable type, without a per-member rule.
 
 #### Scenario: Same-name members are copied automatically
 - **WHEN** a map is registered between two types that share member names and types
 - **THEN** those members are mapped with no additional configuration
 
-#### Scenario: Read-only or missing source members are skipped
-- **WHEN** a destination member has no same-named source member and no override rule
+#### Scenario: Members without a source or a setter are skipped
+- **WHEN** a destination member has no same-named source member and no override rule, or has no public setter
 - **THEN** the member is left unmapped and no error is raised
 
 ### Requirement: Per-member overrides
