@@ -210,3 +210,9 @@ Once both are installed, summarize:
   that's a sign it misunderstood the install model above.
 - `openspec update` regenerates the tool-specific config files after an
   OpenSpec version bump; re-run it after upgrading the CLI.
+
+[Environment]::SetEnvironmentVariable(
+  "Path",
+  $env:Path + ";C:\Users\<username>\AppData\Roaming\Python\Python3xx\Scripts",
+  "User"
+)
