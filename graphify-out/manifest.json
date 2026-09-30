@@ -671,40 +671,46 @@
     "ast_hash": "a6a4b232e3e20085edc03f6a865c8912",
     "semantic_hash": ""
   },
-  "openspec/changes/replace-automapper-with-custom-mapper/.openspec.yaml": {
-    "mtime": 1790728964.644883,
-    "seen": 1790729847.7010555,
-    "ast_hash": "c03dcdc407a1873a6242a505b26a4d7a",
-    "semantic_hash": ""
-  },
-  "openspec/changes/replace-automapper-with-custom-mapper/design.md": {
-    "mtime": 1790729073.0933778,
-    "seen": 1790729847.7010584,
-    "ast_hash": "85b32b2ddfeff1b5c25a26015a752e50",
-    "semantic_hash": ""
-  },
-  "openspec/changes/replace-automapper-with-custom-mapper/proposal.md": {
-    "mtime": 1790729074.1534286,
-    "seen": 1790729847.701061,
-    "ast_hash": "9fdbd9f5f5e25d063e6a63db866cdbc7",
-    "semantic_hash": ""
-  },
-  "openspec/changes/replace-automapper-with-custom-mapper/specs/object-mapping/spec.md": {
-    "mtime": 1790729517.8852394,
-    "seen": 1790729847.7010639,
-    "ast_hash": "80b1f6acf092e2be816722c562fce46c",
-    "semantic_hash": ""
-  },
-  "openspec/changes/replace-automapper-with-custom-mapper/tasks.md": {
-    "mtime": 1790729831.290392,
-    "seen": 1790729847.7010667,
-    "ast_hash": "36c7557298d4fdb37ba7ed0e26c63805",
-    "semantic_hash": ""
-  },
   "openspec/config.yaml": {
     "mtime": 1790728722.025742,
     "seen": 1790729847.7010694,
     "ast_hash": "a88f7d80935e1a432dc9b5affe49eb27",
+    "semantic_hash": ""
+  },
+  "openspec/changes/archive/2026-09-29-replace-automapper-with-custom-mapper/.openspec.yaml": {
+    "mtime": 1790728964.644883,
+    "seen": 1790730091.245118,
+    "ast_hash": "c03dcdc407a1873a6242a505b26a4d7a",
+    "semantic_hash": ""
+  },
+  "openspec/changes/archive/2026-09-29-replace-automapper-with-custom-mapper/design.md": {
+    "mtime": 1790729073.0933778,
+    "seen": 1790730091.245122,
+    "ast_hash": "85b32b2ddfeff1b5c25a26015a752e50",
+    "semantic_hash": ""
+  },
+  "openspec/changes/archive/2026-09-29-replace-automapper-with-custom-mapper/proposal.md": {
+    "mtime": 1790729074.1534286,
+    "seen": 1790730091.2451248,
+    "ast_hash": "9fdbd9f5f5e25d063e6a63db866cdbc7",
+    "semantic_hash": ""
+  },
+  "openspec/changes/archive/2026-09-29-replace-automapper-with-custom-mapper/specs/object-mapping/spec.md": {
+    "mtime": 1790729517.8852394,
+    "seen": 1790730091.245127,
+    "ast_hash": "80b1f6acf092e2be816722c562fce46c",
+    "semantic_hash": ""
+  },
+  "openspec/changes/archive/2026-09-29-replace-automapper-with-custom-mapper/tasks.md": {
+    "mtime": 1790729831.290392,
+    "seen": 1790730091.2451296,
+    "ast_hash": "36c7557298d4fdb37ba7ed0e26c63805",
+    "semantic_hash": ""
+  },
+  "openspec/specs/object-mapping/spec.md": {
+    "mtime": 1790729934.7487924,
+    "seen": 1790730091.245135,
+    "ast_hash": "facb9434bf8c373896c4d2f23605d678",
     "semantic_hash": ""
   }
 }
