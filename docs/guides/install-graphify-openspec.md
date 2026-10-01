@@ -92,9 +92,47 @@ assistant.)
 
 This produces `graphify-out/` containing `graph.html` (interactive viewer),
 `GRAPH_REPORT.md` (summary + suggested questions), and `graph.json`
-(queryable structure). Per Graphify's own guidance, commit `graphify-out/`
-to git, but exclude `graphify-out/cost.json` (and any cache subfolder it
-creates) via `.gitignore`.
+(queryable structure), plus cache and bookkeeping files. **Don't commit the
+whole folder** — commit only what other people actually need.
+
+| Path in `graphify-out/` | Commit? | Why |
+|---|---|---|
+| `graph.json` (~1 MB) | Yes | What `graphify query` / `path` / `explain` read |
+| `GRAPH_REPORT.md` | Yes | Readable summary of the graph |
+| `.graphify_labels.json` (+ `.sig`) | Yes | Curated community names; keeps labels stable between runs |
+| `graph.html` (~850 KB) | No | Regenerated with `graphify export html` |
+| `cache/` (100+ small files) | No | Pure cache |
+| Dated backup folders (e.g. `2026-09-29/`) | No | Copies of the graph made by `graphify update` |
+| `.graphify_python`, `.graphify_root` | No | Contain machine-specific absolute paths (your Python location) — wrong on every other machine |
+| `cost.json`, `manifest.json` | No | Local bookkeeping; the manifest's stored file timestamps change on every run |
+
+Add this to `.gitignore`:
+
+```gitignore
+# graphify: keep only graph.json, GRAPH_REPORT.md and the curated labels
+graphify-out/*
+!graphify-out/graph.json
+!graphify-out/GRAPH_REPORT.md
+!graphify-out/.graphify_labels.json
+!graphify-out/.graphify_labels.json.sig
+```
+
+If `graphify-out/` was already committed in full, adding the ignore rules
+isn't enough — untrack the files too (this keeps them on disk):
+
+```powershell
+git rm -r --cached graphify-out
+git add .gitignore graphify-out/graph.json graphify-out/GRAPH_REPORT.md graphify-out/.graphify_labels.json graphify-out/.graphify_labels.json.sig
+```
+
+`graph.json` changes on every rebuild and diffs/merges badly, so keep
+feature branches quiet: don't refresh it after every small edit. Regenerate
+it in its own commit (for example `chore: update knowledge graph`) shortly
+before merging to `main`, so a PR carries at most one graph change. If
+merge conflicts on it become a nuisance, ignore all of `graphify-out/`
+instead and let each contributor run `/graphify .` locally (the first run
+costs LLM tokens for the docs; later code-only `graphify update .` runs are
+free).
 
 ### Verify
 
@@ -124,6 +162,12 @@ parsing, no LLM call, effectively free for code-only commits. Switching
 branches (`post-checkout`) triggers the same rebuild so the graph matches
 whatever's checked out. The hook is designed to never fail your commit: if
 the rebuild errors, it exits `0` and the commit still goes through.
+
+Since `graph.json` is tracked (see the table above), an auto-rebuild shows up
+as a change to that file on every commit that touches graphed code. That's
+convenient for a solo project but noisy on shared branches — if it gets in
+the way, run `graphify hook uninstall` and refresh the graph manually in a
+dedicated commit before merging.
 
 Useful companions:
 
@@ -198,8 +242,10 @@ Once both are installed, summarize:
 - Both tools are installed **globally** on the machine running them — every
   contributor who wants to use `/graphify` or the OpenSpec workflow needs to
   run Step 1/Step 2's install commands themselves once. Only the
-  *initialized, repo-scoped* output (`graphify-out/`, `.graphifyignore`,
-  `openspec/`, `.claude/skills/...`) is meant to be committed.
+  *initialized, repo-scoped* output (`graphify-out/graph.json`,
+  `graphify-out/GRAPH_REPORT.md` and the labels file, `.graphifyignore`,
+  `openspec/`, `.claude/skills/...`) is meant to be committed — not the rest
+  of `graphify-out/` (see the table in Step 1).
 - `graphify hook install` writes to `.git/hooks/`, which git never tracks —
   so the auto-rebuild-on-commit behavior is also per-machine. Each
   contributor who wants commits/checkouts to auto-refresh the graph needs to
