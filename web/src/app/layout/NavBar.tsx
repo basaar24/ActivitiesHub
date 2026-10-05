@@ -11,15 +11,15 @@ export default function NavBar() {
             <MenuList>
               <MenuItem sx={{ display: "flex", gap: 2 }}>
                 <Group fontSize="large" />
-                <Typography variant="h4" sx={{ fontWeight: "bold" }}>Events</Typography>
+                <Typography variant="h4" sx={{ fontWeight: "bold" }}>Activities</Typography>
               </MenuItem>
             </MenuList>
             <MenuList disablePadding sx={{display: "flex"}}>
-              <MenuItem sx={{ fontSize: "1.2rem", textTransform: "uppercase"}}>Events</MenuItem>
+              <MenuItem sx={{ fontSize: "1.2rem", textTransform: "uppercase"}}>Activities</MenuItem>
               <MenuItem sx={{ fontSize: "1.2rem", textTransform: "uppercase"}}>About</MenuItem>
               <MenuItem sx={{ fontSize: "1.2rem", textTransform: "uppercase"}}>Contact</MenuItem>
             </MenuList>
-            <Button size="large" variant="contained" color="warning">Create event</Button>
+            <Button size="large" variant="contained" color="warning">Create activity</Button>
           </Toolbar>
         </Container>
       </AppBar>
