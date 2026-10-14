@@ -44,7 +44,7 @@ This is an early-stage app — worth knowing before extending it:
   (handled by MediatR handlers in `EventsHub.Application`), but the UI does
   not call them yet. The generated typed client in `EventsHub.OpenApi` is
   not used by this app either.
-- **`src/lib/types/index.d.ts`** declares shared types as *ambient* `type`
+- **`src/lib/types/index.d.ts`** declares shared types as _ambient_ `type`
   declarations (e.g. `Activity`, which mirrors the backend's `Event`
   entity/DTO — the frontend hasn't been renamed to match yet). Note that
   `Activity` types `latitude`/`longitude` as `number`, while the backend

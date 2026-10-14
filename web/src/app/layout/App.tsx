@@ -1,39 +1,40 @@
-import { Box, Container, CssBaseline } from "@mui/material";
-import axios from "axios";
-import { useEffect, useState } from "react"
-import NavBar from "./NavBar";
-import ActivityDashboard from "../../features/activities/dashboard/ActivityDashboard";
+import { Box, Container, CssBaseline } from '@mui/material'
+import axios from 'axios'
+import { useEffect, useState } from 'react'
+import NavBar from './NavBar'
+import ActivityDashboard from '../../features/activities/dashboard/ActivityDashboard'
 
 function App() {
-  const [activities, setActivities] = useState<Activity[]>([]);
-  const [selectedActivity, setSelectedActivity] = useState<Activity | undefined>(undefined);
-  const [editMode, setEditMode] = useState(false);
+  const [activities, setActivities] = useState<Activity[]>([])
+  const [selectedActivity, setSelectedActivity] = useState<
+    Activity | undefined
+  >(undefined)
+  const [editMode, setEditMode] = useState(false)
 
   useEffect(() => {
-    axios.get<Activity[]>('https://localhost:5001/api/v1/events')
-      .then(response => setActivities(response.data));
+    axios
+      .get<Activity[]>('https://localhost:5001/api/v1/events')
+      .then((response) => setActivities(response.data))
 
-    return () => { };
-  }, []);
+    return () => {}
+  }, [])
 
   const handleSelectActivity = (id: string) => {
-    setSelectedActivity(activities.find(act => act.id === id));
+    setSelectedActivity(activities.find((act) => act.id === id))
   }
 
   const handleCancelSelectActivity = () => {
-    setSelectedActivity(undefined);
+    setSelectedActivity(undefined)
   }
 
   const handleOpenForm = (id?: string) => {
-    if (id)
-      handleSelectActivity(id);
-    else
-      handleCancelSelectActivity();
-    setEditMode(true);
+    if (id) handleSelectActivity(id)
+    else handleCancelSelectActivity()
+    setEditMode(true)
   }
 
   const handleFormClose = () => {
-    setEditMode(false);
+    setEditMode(false)
   }
 
   return (
@@ -48,7 +49,8 @@ function App() {
           selectedActivity={selectedActivity}
           editMode={editMode}
           openForm={handleOpenForm}
-          closeForm={handleFormClose} />
+          closeForm={handleFormClose}
+        />
       </Container>
     </Box>
   )
