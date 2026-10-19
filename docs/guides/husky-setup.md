@@ -105,6 +105,8 @@ npm install --save-dev lint-staged
 
 Add a `lint-staged` section to `web/package.json`. Only list tools that are **installed in that project**: a command that isn't installed makes the hook fail with "'prettier' is not recognized". The version below uses only `eslint`; the optional Prettier section right after it shows how to add Prettier.
 
+Copy the next json to the bottom of the `web/package.json` file.
+
 ```json
 "lint-staged": {
   "*.{js,jsx,ts,tsx}": "eslint --fix"
@@ -119,14 +121,14 @@ Add a `lint-staged` section to `web/package.json`. Only list tools that are **in
    ```powershell
    npm install --save-dev prettier
    ```
-2. Create `web/.prettierrc`. Pick options that match your **current** code style, otherwise Prettier rewrites every file it touches. The Vite React-TS template uses no semicolons and single quotes, so this is a likely match, but check your files:
+2. Create `web/.prettierrc`. Pick options that match your **current** code style, otherwise Prettier rewrites every file it touches. The Vite React-TS template uses no semicolons and single quotes, so this is a likely match, but check your files. Copy the next json to the file created:
    ```json
    {
      "semi": false,
      "singleQuote": true
    }
    ```
-3. Create `web/.prettierignore` so generated files are skipped:
+3. Create `web/.prettierignore` so generated files are skipped. Copy the next text to the file created:
    ```
    dist
    node_modules
