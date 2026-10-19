@@ -27,11 +27,11 @@ It acts as:
 ### `DbContext` vs. `DbSet<T>`
 
 - `DbContext` is the overall session — it owns the connection, the change tracker, the model, and the `SaveChanges()` pipeline.
-- `DbSet<T>` is a typed collection *exposed by* the context, representing (roughly) a table or entity type. All `DbSet<T>` properties on a context share the same underlying connection, change tracker, and transaction.
+- `DbSet<T>` is a typed collection _exposed by_ the context, representing (roughly) a table or entity type. All `DbSet<T>` properties on a context share the same underlying connection, change tracker, and transaction.
 
 ### Where It Fits in an Application
 
-In a typical layered application, `DbContext` sits in the data access layer, injected into repositories or directly into services via dependency injection (in ASP.NET Core). It is *not* meant to be a long-lived, application-wide singleton — its lifetime is a first-class design concern (see Section 6).
+In a typical layered application, `DbContext` sits in the data access layer, injected into repositories or directly into services via dependency injection (in ASP.NET Core). It is _not_ meant to be a long-lived, application-wide singleton — its lifetime is a first-class design concern (see Section 6).
 
 ---
 
@@ -209,10 +209,10 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 ### Fluent API vs. Data Annotations
 
-| Approach | Where it lives | Strengths | Limitations |
-|---|---|---|---|
-| **Data Annotations** | Attributes on entity properties (`[Required]`, `[MaxLength]`) | Quick, colocated with the model | Can't express everything (e.g., composite keys, some index configs); couples domain classes to EF |
-| **Fluent API** | `OnModelCreating`, via `ModelBuilder` | Full configuration surface; keeps entities EF-agnostic | Configuration lives separately from the entity, which can reduce discoverability |
+| Approach             | Where it lives                                                | Strengths                                              | Limitations                                                                                       |
+| -------------------- | ------------------------------------------------------------- | ------------------------------------------------------ | ------------------------------------------------------------------------------------------------- |
+| **Data Annotations** | Attributes on entity properties (`[Required]`, `[MaxLength]`) | Quick, colocated with the model                        | Can't express everything (e.g., composite keys, some index configs); couples domain classes to EF |
+| **Fluent API**       | `OnModelCreating`, via `ModelBuilder`                         | Full configuration surface; keeps entities EF-agnostic | Configuration lives separately from the entity, which can reduce discoverability                  |
 
 A common convention: use Fluent API as the primary source of truth (often split into `IEntityTypeConfiguration<T>` classes per entity), reserving annotations for simple, obvious cases.
 
@@ -261,12 +261,13 @@ var count = query.Count();                         // SQL executes here
 ```
 
 This matters for two common mistakes:
+
 - Accidentally executing the same query multiple times (once per enumeration) because it was never materialized into a list.
 - Composing a query across method boundaries without realizing additional `.Where()` calls are still being folded into the same SQL statement (usually beneficial, but surprising if unexpected).
 
 ### Client-Side vs. Server-Side Evaluation
 
-EF Core translates as much of the query as possible into SQL (server-side evaluation). Anything it *cannot* translate (arbitrary C# methods, complex custom logic) will either:
+EF Core translates as much of the query as possible into SQL (server-side evaluation). Anything it _cannot_ translate (arbitrary C# methods, complex custom logic) will either:
 
 - Throw an exception (in modern EF Core versions, for most cases), or
 - In some cases, silently pull more data than expected before filtering in memory (client-side evaluation) — this was more permissive in EF Core 2.x and is far more restricted in EF Core 3.0+.
@@ -303,13 +304,13 @@ user.Name = "Updated Name"; // EF marks this entity as Modified
 
 Every tracked entity has one of five states, exposed via `EntityEntry.State`:
 
-| State | Meaning |
-|---|---|
-| `Added` | New entity; will be `INSERT`ed on `SaveChanges()`. |
-| `Unchanged` | Tracked, matches its original snapshot; no-op on `SaveChanges()`. |
-| `Modified` | Tracked, one or more properties differ from the original snapshot; will be `UPDATE`d. |
-| `Deleted` | Marked for removal; will be `DELETE`d on `SaveChanges()`. |
-| `Detached` | Not tracked by this context's change tracker at all. |
+| State       | Meaning                                                                               |
+| ----------- | ------------------------------------------------------------------------------------- |
+| `Added`     | New entity; will be `INSERT`ed on `SaveChanges()`.                                    |
+| `Unchanged` | Tracked, matches its original snapshot; no-op on `SaveChanges()`.                     |
+| `Modified`  | Tracked, one or more properties differ from the original snapshot; will be `UPDATE`d. |
+| `Deleted`   | Marked for removal; will be `DELETE`d on `SaveChanges()`.                             |
+| `Detached`  | Not tracked by this context's change tracker at all.                                  |
 
 You can inspect or manually set state:
 
@@ -330,12 +331,12 @@ An alternative is **changed-tracking proxies** (via `Microsoft.EntityFrameworkCo
 
 ### Tracking vs. No-Tracking, Revisited
 
-| | Tracking (default) | No-Tracking |
-|---|---|---|
-| Change detection | Yes — snapshot maintained | No |
-| Memory overhead | Higher | Lower |
-| Use case | Entities you intend to modify and save | Read-only display/reporting queries |
-| Identity resolution | Same entity instance returned for repeated queries within a context | Each query returns fresh instances |
+|                     | Tracking (default)                                                  | No-Tracking                         |
+| ------------------- | ------------------------------------------------------------------- | ----------------------------------- |
+| Change detection    | Yes — snapshot maintained                                           | No                                  |
+| Memory overhead     | Higher                                                              | Lower                               |
+| Use case            | Entities you intend to modify and save                              | Read-only display/reporting queries |
+| Identity resolution | Same entity instance returned for repeated queries within a context | Each query returns fresh instances  |
 
 ---
 
@@ -358,7 +359,7 @@ After a successful save, EF Core updates tracked entities' state back to `Unchan
 
 ### Implicit Transactions
 
-If `SaveChanges()` issues multiple SQL statements, they run inside a single implicit transaction automatically — you don't need to wrap a single `SaveChanges()` call in your own transaction for atomicity across those statements. You *do* need an explicit transaction when you need atomicity **across multiple `SaveChanges()` calls**, or across multiple contexts (see Section 9).
+If `SaveChanges()` issues multiple SQL statements, they run inside a single implicit transaction automatically — you don't need to wrap a single `SaveChanges()` call in your own transaction for atomicity across those statements. You _do_ need an explicit transaction when you need atomicity **across multiple `SaveChanges()` calls**, or across multiple contexts (see Section 9).
 
 ### Concurrency Tokens (Preview)
 
@@ -396,7 +397,7 @@ using (var context = new AppDbContext(options))
 
 A quick survey of major `DbContext` capabilities, each expanded further later in this guide:
 
-- **Lazy Loading** *(optional)* — related data is loaded automatically from the database the first time a navigation property is accessed. See Section 8.
+- **Lazy Loading** _(optional)_ — related data is loaded automatically from the database the first time a navigation property is accessed. See Section 8.
 - **Eager Loading** — related data is loaded upfront via `.Include()` as part of the initial query. See Section 8.
 - **Migrations** — a versioned, code-first way to evolve the database schema alongside your model changes (`dotnet ef migrations add`, `dotnet ef database update`).
 - **Transactions** — automatic within a single `SaveChanges()` call; manual, cross-call transactions available via `BeginTransaction()`. See Section 9.
@@ -471,11 +472,11 @@ foreach (var user in context.Users.ToList())
 
 ### Choosing a Strategy
 
-| Strategy | Round trips | Risk | Best for |
-|---|---|---|---|
-| Eager (`.Include()`) | 1 (or N with split query) | Cartesian explosion on multiple collections | Known, fixed data needs per query |
-| Explicit | 1 + 1 per load call | Easy to forget a call, but visible in code | Conditional/on-demand related data |
-| Lazy | 1 + 1 per access | N+1 problem, hidden queries, serialization issues | Rarely recommended for APIs; sometimes fine for UI-bound desktop apps with tight object graphs |
+| Strategy             | Round trips               | Risk                                              | Best for                                                                                       |
+| -------------------- | ------------------------- | ------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| Eager (`.Include()`) | 1 (or N with split query) | Cartesian explosion on multiple collections       | Known, fixed data needs per query                                                              |
+| Explicit             | 1 + 1 per load call       | Easy to forget a call, but visible in code        | Conditional/on-demand related data                                                             |
+| Lazy                 | 1 + 1 per access          | N+1 problem, hidden queries, serialization issues | Rarely recommended for APIs; sometimes fine for UI-bound desktop apps with tight object graphs |
 
 ---
 
@@ -671,17 +672,17 @@ This is the recommended pattern anywhere a component or service has a lifetime t
 
 ### Provider Options for Tests
 
-| Approach | Accuracy | Speed | Notes |
-|---|---|---|---|
-| **EF Core In-Memory provider** | Low — doesn't enforce real relational constraints, doesn't validate real SQL translation | Fast | Convenient, but can pass tests that would fail against a real database (e.g., missed unique constraint violations, different LINQ translation behavior) |
-| **SQLite in-memory** | Moderate-high — a real relational engine, real SQL execution | Fast | Much closer to real behavior than the In-Memory provider; still not 100% identical to your production provider (e.g., SQL Server-specific functions/behaviors won't be tested) |
-| **Real test database** (containerized or dedicated instance) | Highest | Slower | Closest to production fidelity; typically reserved for integration tests rather than fast unit tests |
+| Approach                                                     | Accuracy                                                                                 | Speed  | Notes                                                                                                                                                                          |
+| ------------------------------------------------------------ | ---------------------------------------------------------------------------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **EF Core In-Memory provider**                               | Low — doesn't enforce real relational constraints, doesn't validate real SQL translation | Fast   | Convenient, but can pass tests that would fail against a real database (e.g., missed unique constraint violations, different LINQ translation behavior)                        |
+| **SQLite in-memory**                                         | Moderate-high — a real relational engine, real SQL execution                             | Fast   | Much closer to real behavior than the In-Memory provider; still not 100% identical to your production provider (e.g., SQL Server-specific functions/behaviors won't be tested) |
+| **Real test database** (containerized or dedicated instance) | Highest                                                                                  | Slower | Closest to production fidelity; typically reserved for integration tests rather than fast unit tests                                                                           |
 
 **General guidance:** avoid the EF Core In-Memory provider for anything beyond the most trivial checks — its behavioral differences from real relational databases (no real constraint enforcement, different LINQ translation paths) can hide real bugs. SQLite in-memory is a stronger default for integration-style tests that need to run fast; a real (often containerized) database instance is worth the extra time for tests that must validate provider-specific behavior.
 
 ### Abstraction for Unit Testing
 
-For true unit tests (isolating logic *around* the context, not the context's own query translation), wrap data access behind a repository interface and substitute a test double — keeping `DbContext` itself out of the unit test entirely, and reserving real-provider tests for the data access layer's own integration tests.
+For true unit tests (isolating logic _around_ the context, not the context's own query translation), wrap data access behind a repository interface and substitute a test double — keeping `DbContext` itself out of the unit test entirely, and reserving real-provider tests for the data access layer's own integration tests.
 
 ### Seeding Data for Integration Tests
 
@@ -721,19 +722,19 @@ Prefer fresh, isolated data per test (a fresh in-memory/SQLite database per test
 
 > **Depth: General**
 
-| Feature | Purpose | When to Use | Performance Cost |
-|---|---|---|---|
-| `AsNoTracking()` | Skip change tracking | Read-only queries | Lower overhead than tracked queries |
-| `.Include()` / `.ThenInclude()` | Eager load related data | Known, fixed related-data needs | Can cause cartesian growth with multiple collections |
-| `AsSplitQuery()` | Avoid cartesian growth | Multiple collection includes | Extra round trips; less atomic consistency |
-| Explicit loading | On-demand related data | Conditional related-data needs | One extra query per load call |
-| Lazy loading | Automatic on-access loading | Rarely recommended for APIs | High risk of N+1 problem |
-| `SaveChanges()` | Persist tracked changes | Standard unit-of-work commit | Implicit transaction; DetectChanges cost scales with tracked entity count |
-| Manual transactions | Atomicity across multiple `SaveChanges()`/contexts | Multi-step operations needing all-or-nothing | Extra coordination overhead |
-| Optimistic concurrency tokens | Detect conflicting concurrent updates | Multi-user editable data | Cheap in the common (no-conflict) case |
-| `ExecuteUpdate`/`ExecuteDelete` | Bulk set-based operations | Large-scale updates/deletes | Much faster than load-then-save for bulk changes; bypasses tracking/interceptors |
-| `AddDbContextPool` | Reuse context instances | High-throughput web APIs | Faster context acquisition; requires stateless context design |
-| `IDbContextFactory<T>` | Create contexts outside DI scope | Blazor, background services, parallel work | Same per-instance cost as normal, but correctly scoped |
+| Feature                         | Purpose                                            | When to Use                                  | Performance Cost                                                                 |
+| ------------------------------- | -------------------------------------------------- | -------------------------------------------- | -------------------------------------------------------------------------------- |
+| `AsNoTracking()`                | Skip change tracking                               | Read-only queries                            | Lower overhead than tracked queries                                              |
+| `.Include()` / `.ThenInclude()` | Eager load related data                            | Known, fixed related-data needs              | Can cause cartesian growth with multiple collections                             |
+| `AsSplitQuery()`                | Avoid cartesian growth                             | Multiple collection includes                 | Extra round trips; less atomic consistency                                       |
+| Explicit loading                | On-demand related data                             | Conditional related-data needs               | One extra query per load call                                                    |
+| Lazy loading                    | Automatic on-access loading                        | Rarely recommended for APIs                  | High risk of N+1 problem                                                         |
+| `SaveChanges()`                 | Persist tracked changes                            | Standard unit-of-work commit                 | Implicit transaction; DetectChanges cost scales with tracked entity count        |
+| Manual transactions             | Atomicity across multiple `SaveChanges()`/contexts | Multi-step operations needing all-or-nothing | Extra coordination overhead                                                      |
+| Optimistic concurrency tokens   | Detect conflicting concurrent updates              | Multi-user editable data                     | Cheap in the common (no-conflict) case                                           |
+| `ExecuteUpdate`/`ExecuteDelete` | Bulk set-based operations                          | Large-scale updates/deletes                  | Much faster than load-then-save for bulk changes; bypasses tracking/interceptors |
+| `AddDbContextPool`              | Reuse context instances                            | High-throughput web APIs                     | Faster context acquisition; requires stateless context design                    |
+| `IDbContextFactory<T>`          | Create contexts outside DI scope                   | Blazor, background services, parallel work   | Same per-instance cost as normal, but correctly scoped                           |
 
 ---
 
@@ -750,4 +751,4 @@ A ~30–40 minute hands-on activity to practice the concepts, using a lightweigh
 5. Add a second `Order` with several `OrderItem`s, then load orders with `.Include(o => o.Items)` both with and without `AsSplitQuery()`. Compare the generated SQL and discuss when you'd choose each.
 6. Wrap-up discussion: for a hypothetical high-traffic ASP.NET Core API, decide where you'd use `AsNoTracking()`, whether pooling (`AddDbContextPool`) makes sense, and how you'd guard against accidental N+1 queries in code review.
 
-**Goal:** build direct, observable intuition for change tracking, transaction boundaries, and loading strategy trade-offs — not just the API surface, but *why* each choice matters at runtime.
+**Goal:** build direct, observable intuition for change tracking, transaction boundaries, and loading strategy trade-offs — not just the API surface, but _why_ each choice matters at runtime.

@@ -106,9 +106,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.Core.Mapping",
-        "scope_chain": [
-          "s0"
-        ]
+        "scope_chain": ["s0"]
       },
       "norm_label": "mapper",
       "source_file": "src/EventsHub.Application/Core/Mapping/Mapper.cs",
@@ -125,9 +123,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.UnitTests.Mapping",
-        "scope_chain": [
-          "s149"
-        ]
+        "scope_chain": ["s149"]
       },
       "norm_label": "mappingprofilestests",
       "source_file": "tests/EventsHub.Application.UnitTests/Mapping/MappingProfilesTests.cs",
@@ -144,9 +140,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Api",
-        "scope_chain": [
-          "s0"
-        ]
+        "scope_chain": ["s0"]
       },
       "norm_label": "weatherforecast",
       "source_file": "src/EventsHub.Api/WeatherForecast.cs",
@@ -163,9 +157,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Persistence",
-        "scope_chain": [
-          "s27"
-        ]
+        "scope_chain": ["s27"]
       },
       "norm_label": "dbinitializer",
       "source_file": "src/EventsHub.Persistence/DbInitializer.cs",
@@ -183,9 +175,7 @@
       "metadata": {
         "is_partial": true,
         "namespace": "EventsHub.Persistence.Migrations",
-        "scope_chain": [
-          "s296"
-        ]
+        "scope_chain": ["s296"]
       },
       "norm_label": "initialcreate",
       "source_file": "src/EventsHub.Persistence/Migrations/20260828131904_InitialCreate.Designer.cs",
@@ -203,9 +193,7 @@
       "metadata": {
         "is_partial": true,
         "namespace": "EventsHub.Persistence.Migrations",
-        "scope_chain": [
-          "s247"
-        ]
+        "scope_chain": ["s247"]
       },
       "norm_label": "appdbcontextmodelsnapshot",
       "source_file": "src/EventsHub.Persistence/Migrations/AppDbContextModelSnapshot.cs",
@@ -222,9 +210,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.UnitTests",
-        "scope_chain": [
-          "s70"
-        ]
+        "scope_chain": ["s70"]
       },
       "norm_label": "globaltestsetup",
       "source_file": "tests/EventsHub.UnitTests/GlobalTestSetup.cs",
@@ -254,9 +240,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.UnitTests.Mapping",
-        "scope_chain": [
-          "s43"
-        ]
+        "scope_chain": ["s43"]
       },
       "norm_label": "childdest",
       "source_file": "tests/EventsHub.Application.UnitTests/Mapping/MapperFixtures.cs",
@@ -273,9 +257,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.UnitTests.Mapping",
-        "scope_chain": [
-          "s43"
-        ]
+        "scope_chain": ["s43"]
       },
       "norm_label": "childsource",
       "source_file": "tests/EventsHub.Application.UnitTests/Mapping/MapperFixtures.cs",
@@ -292,9 +274,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.UnitTests.Mapping",
-        "scope_chain": [
-          "s43"
-        ]
+        "scope_chain": ["s43"]
       },
       "norm_label": "immutable",
       "source_file": "tests/EventsHub.Application.UnitTests/Mapping/MapperFixtures.cs",
@@ -311,9 +291,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.UnitTests.Mapping",
-        "scope_chain": [
-          "s43"
-        ]
+        "scope_chain": ["s43"]
       },
       "norm_label": "parentdest",
       "source_file": "tests/EventsHub.Application.UnitTests/Mapping/MapperFixtures.cs",
@@ -330,9 +308,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.UnitTests.Mapping",
-        "scope_chain": [
-          "s43"
-        ]
+        "scope_chain": ["s43"]
       },
       "norm_label": "parentsource",
       "source_file": "tests/EventsHub.Application.UnitTests/Mapping/MapperFixtures.cs",
@@ -349,9 +325,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.UnitTests.Mapping",
-        "scope_chain": [
-          "s43"
-        ]
+        "scope_chain": ["s43"]
       },
       "norm_label": "person",
       "source_file": "tests/EventsHub.Application.UnitTests/Mapping/MapperFixtures.cs",
@@ -368,9 +342,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.UnitTests.Mapping",
-        "scope_chain": [
-          "s43"
-        ]
+        "scope_chain": ["s43"]
       },
       "norm_label": "personview",
       "source_file": "tests/EventsHub.Application.UnitTests/Mapping/MapperFixtures.cs",
@@ -387,9 +359,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.UnitTests.Mapping",
-        "scope_chain": [
-          "s43"
-        ]
+        "scope_chain": ["s43"]
       },
       "norm_label": "testprofile",
       "source_file": "tests/EventsHub.Application.UnitTests/Mapping/MapperFixtures.cs",
@@ -406,9 +376,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.UnitTests.Mapping",
-        "scope_chain": [
-          "s43"
-        ]
+        "scope_chain": ["s43"]
       },
       "norm_label": "unrelated",
       "source_file": "tests/EventsHub.Application.UnitTests/Mapping/MapperFixtures.cs",
@@ -425,9 +393,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.UnitTests.Mapping",
-        "scope_chain": [
-          "s91"
-        ]
+        "scope_chain": ["s91"]
       },
       "norm_label": "mappertests",
       "source_file": "tests/EventsHub.Application.UnitTests/Mapping/MapperTests.cs",
@@ -444,9 +410,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.Core.Mapping",
-        "scope_chain": [
-          "s32"
-        ]
+        "scope_chain": ["s32"]
       },
       "norm_label": "imappingexpression",
       "source_file": "src/EventsHub.Application/Core/Mapping/IMappingExpression.cs",
@@ -463,9 +427,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.Core.Mapping",
-        "scope_chain": [
-          "s32"
-        ]
+        "scope_chain": ["s32"]
       },
       "norm_label": "imemberoptions",
       "source_file": "src/EventsHub.Application/Core/Mapping/IMappingExpression.cs",
@@ -483,9 +445,7 @@
       "metadata": {
         "is_nested_type": true,
         "namespace": "EventsHub.Application.Core.Mapping",
-        "scope_chain": [
-          "s83"
-        ]
+        "scope_chain": ["s83"]
       },
       "norm_label": "memberoptions",
       "source_file": "src/EventsHub.Application/Core/Mapping/TypeMap.cs",
@@ -502,9 +462,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.Core.Mapping",
-        "scope_chain": [
-          "s83"
-        ]
+        "scope_chain": ["s83"]
       },
       "norm_label": "typemap",
       "source_file": "src/EventsHub.Application/Core/Mapping/TypeMap.cs",
@@ -522,9 +480,7 @@
       "metadata": {
         "is_nested_type": true,
         "namespace": "EventsHub.Application.Events.Commands",
-        "scope_chain": [
-          "s73"
-        ]
+        "scope_chain": ["s73"]
       },
       "norm_label": "command",
       "source_file": "src/EventsHub.Application/Events/Commands/CreateEvent.cs",
@@ -542,9 +498,7 @@
       "metadata": {
         "is_nested_type": true,
         "namespace": "EventsHub.Application.Events.Commands",
-        "scope_chain": [
-          "s73"
-        ]
+        "scope_chain": ["s73"]
       },
       "norm_label": "handler",
       "source_file": "src/EventsHub.Application/Events/Commands/CreateEvent.cs",
@@ -562,9 +516,7 @@
       "metadata": {
         "is_nested_type": true,
         "namespace": "EventsHub.Application.Events.Commands",
-        "scope_chain": [
-          "s48"
-        ]
+        "scope_chain": ["s48"]
       },
       "norm_label": "command",
       "source_file": "src/EventsHub.Application/Events/Commands/DeleteEvent.cs",
@@ -581,9 +533,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.Events.Commands",
-        "scope_chain": [
-          "s48"
-        ]
+        "scope_chain": ["s48"]
       },
       "norm_label": "deleteevent",
       "source_file": "src/EventsHub.Application/Events/Commands/DeleteEvent.cs",
@@ -601,9 +551,7 @@
       "metadata": {
         "is_nested_type": true,
         "namespace": "EventsHub.Application.Events.Commands",
-        "scope_chain": [
-          "s48"
-        ]
+        "scope_chain": ["s48"]
       },
       "norm_label": "handler",
       "source_file": "src/EventsHub.Application/Events/Commands/DeleteEvent.cs",
@@ -621,9 +569,7 @@
       "metadata": {
         "is_nested_type": true,
         "namespace": "EventsHub.Application.Events.Commands",
-        "scope_chain": [
-          "s116"
-        ]
+        "scope_chain": ["s116"]
       },
       "norm_label": "command",
       "source_file": "src/EventsHub.Application/Events/Commands/EditEvent.cs",
@@ -640,9 +586,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.Events.Queries",
-        "scope_chain": [
-          "s73"
-        ]
+        "scope_chain": ["s73"]
       },
       "norm_label": "geteventdetails",
       "source_file": "src/EventsHub.Application/Events/Queries/GetEventDetails.cs",
@@ -660,9 +604,7 @@
       "metadata": {
         "is_nested_type": true,
         "namespace": "EventsHub.Application.Events.Queries",
-        "scope_chain": [
-          "s73"
-        ]
+        "scope_chain": ["s73"]
       },
       "norm_label": "handler",
       "source_file": "src/EventsHub.Application/Events/Queries/GetEventDetails.cs",
@@ -680,9 +622,7 @@
       "metadata": {
         "is_nested_type": true,
         "namespace": "EventsHub.Application.Events.Queries",
-        "scope_chain": [
-          "s73"
-        ]
+        "scope_chain": ["s73"]
       },
       "norm_label": "query",
       "source_file": "src/EventsHub.Application/Events/Queries/GetEventDetails.cs",
@@ -699,9 +639,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.Events.Queries",
-        "scope_chain": [
-          "s185"
-        ]
+        "scope_chain": ["s185"]
       },
       "norm_label": "geteventlist",
       "source_file": "src/EventsHub.Application/Events/Queries/GetEventList.cs",
@@ -719,9 +657,7 @@
       "metadata": {
         "is_nested_type": true,
         "namespace": "EventsHub.Application.Events.Queries",
-        "scope_chain": [
-          "s185"
-        ]
+        "scope_chain": ["s185"]
       },
       "norm_label": "handler",
       "source_file": "src/EventsHub.Application/Events/Queries/GetEventList.cs",
@@ -739,9 +675,7 @@
       "metadata": {
         "is_nested_type": true,
         "namespace": "EventsHub.Application.Events.Queries",
-        "scope_chain": [
-          "s185"
-        ]
+        "scope_chain": ["s185"]
       },
       "norm_label": "query",
       "source_file": "src/EventsHub.Application/Events/Queries/GetEventList.cs",
@@ -758,9 +692,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Persistence",
-        "scope_chain": [
-          "s65"
-        ]
+        "scope_chain": ["s65"]
       },
       "norm_label": "appdbcontext",
       "source_file": "src/EventsHub.Persistence/AppDbContext.cs",
@@ -777,9 +709,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.Core.Mapping",
-        "scope_chain": [
-          "s0"
-        ]
+        "scope_chain": ["s0"]
       },
       "norm_label": "imapper",
       "source_file": "src/EventsHub.Application/Core/Mapping/IMapper.cs",
@@ -797,9 +727,7 @@
       "metadata": {
         "is_nested_type": true,
         "namespace": "EventsHub.Application.Events.Commands",
-        "scope_chain": [
-          "s116"
-        ]
+        "scope_chain": ["s116"]
       },
       "norm_label": "handler",
       "source_file": "src/EventsHub.Application/Events/Commands/EditEvent.cs",
@@ -816,9 +744,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.Events.Commands",
-        "scope_chain": [
-          "s73"
-        ]
+        "scope_chain": ["s73"]
       },
       "norm_label": "createevent",
       "source_file": "src/EventsHub.Application/Events/Commands/CreateEvent.cs",
@@ -835,9 +761,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.Core",
-        "scope_chain": [
-          "s67"
-        ]
+        "scope_chain": ["s67"]
       },
       "norm_label": "mappingprofiles",
       "source_file": "src/EventsHub.Application/Core/MappingProfiles.cs",
@@ -854,9 +778,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.Events.Commands",
-        "scope_chain": [
-          "s116"
-        ]
+        "scope_chain": ["s116"]
       },
       "norm_label": "editevent",
       "source_file": "src/EventsHub.Application/Events/Commands/EditEvent.cs",
@@ -873,9 +795,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.Core.Mapping",
-        "scope_chain": [
-          "s74"
-        ]
+        "scope_chain": ["s74"]
       },
       "norm_label": "mappingservicecollectionextensions",
       "source_file": "src/EventsHub.Application/Core/Mapping/MappingServiceCollectionExtensions.cs",
@@ -892,9 +812,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.Core.Mapping",
-        "scope_chain": [
-          "s0"
-        ]
+        "scope_chain": ["s0"]
       },
       "norm_label": "profile",
       "source_file": "src/EventsHub.Application/Core/Mapping/Profile.cs",
@@ -911,9 +829,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.UnitTests.Mapping",
-        "scope_chain": [
-          "s43"
-        ]
+        "scope_chain": ["s43"]
       },
       "norm_label": "samplepersonprofile",
       "source_file": "tests/EventsHub.Application.UnitTests/Mapping/MapperFixtures.cs",
@@ -930,9 +846,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.UnitTests.Mapping",
-        "scope_chain": [
-          "s67"
-        ]
+        "scope_chain": ["s67"]
       },
       "norm_label": "eventsummary",
       "source_file": "tests/EventsHub.Application.UnitTests/Mapping/DocumentedProfileExample.cs",
@@ -949,9 +863,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.UnitTests.Mapping",
-        "scope_chain": [
-          "s67"
-        ]
+        "scope_chain": ["s67"]
       },
       "norm_label": "eventsummaryprofile",
       "source_file": "tests/EventsHub.Application.UnitTests/Mapping/DocumentedProfileExample.cs",
@@ -968,9 +880,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Api.Controllers",
-        "scope_chain": [
-          "s151"
-        ]
+        "scope_chain": ["s151"]
       },
       "norm_label": "eventscontroller",
       "source_file": "src/EventsHub.Api/Controllers/EventsController.cs",
@@ -987,9 +897,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Api.Controllers",
-        "scope_chain": [
-          "s51"
-        ]
+        "scope_chain": ["s51"]
       },
       "norm_label": "eventshubbasecontroller",
       "source_file": "src/EventsHub.Api/Controllers/EventsHubBaseController.cs",
@@ -1006,9 +914,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Api.Controllers",
-        "scope_chain": [
-          "s35"
-        ]
+        "scope_chain": ["s35"]
       },
       "norm_label": "weatherforecastcontroller",
       "source_file": "src/EventsHub.Api/Controllers/WeatherForecastController.cs",
@@ -1025,9 +931,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Domain",
-        "scope_chain": [
-          "s0"
-        ]
+        "scope_chain": ["s0"]
       },
       "norm_label": "event",
       "source_file": "src/EventsHub.Domain/Event.cs",
@@ -1044,9 +948,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.UnitTests.Controllers",
-        "scope_chain": [
-          "s147"
-        ]
+        "scope_chain": ["s147"]
       },
       "norm_label": "eventscontrollertests",
       "source_file": "tests/EventsHub.UnitTests/Controllers/EventsControllerTests.cs",
@@ -1062,9 +964,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.Core.Mapping",
-        "scope_chain": [
-          "s0"
-        ],
+        "scope_chain": ["s0"],
         "unresolved_calls": [
           {
             "callee": "TryGetValue",
@@ -1088,9 +988,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.Core.Mapping",
-        "scope_chain": [
-          "s0"
-        ],
+        "scope_chain": ["s0"],
         "unresolved_calls": [
           {
             "callee": "ThrowIfNull",
@@ -1114,9 +1012,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.UnitTests.Mapping",
-        "scope_chain": [
-          "s149"
-        ],
+        "scope_chain": ["s149"],
         "unresolved_calls": [
           {
             "callee": "AddMapper",
@@ -1158,9 +1054,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.UnitTests.Mapping",
-        "scope_chain": [
-          "s149"
-        ],
+        "scope_chain": ["s149"],
         "unresolved_calls": [
           {
             "callee": "Multiple",
@@ -1196,9 +1090,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.UnitTests.Mapping",
-        "scope_chain": [
-          "s149"
-        ],
+        "scope_chain": ["s149"],
         "unresolved_calls": [
           {
             "callee": "That",
@@ -1240,9 +1132,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.UnitTests.Mapping",
-        "scope_chain": [
-          "s149"
-        ]
+        "scope_chain": ["s149"]
       },
       "norm_label": ".newevent()",
       "source_file": "tests/EventsHub.Application.UnitTests/Mapping/MappingProfilesTests.cs",
@@ -1258,9 +1148,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Persistence",
-        "scope_chain": [
-          "s27"
-        ]
+        "scope_chain": ["s27"]
       },
       "norm_label": ".seeddataasync()",
       "source_file": "src/EventsHub.Persistence/DbInitializer.cs",
@@ -1276,9 +1164,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Persistence.Migrations",
-        "scope_chain": [
-          "s296"
-        ],
+        "scope_chain": ["s296"],
         "unresolved_calls": [
           {
             "callee": "HasAnnotation",
@@ -1308,9 +1194,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Persistence.Migrations",
-        "scope_chain": [
-          "s90"
-        ],
+        "scope_chain": ["s90"],
         "unresolved_calls": [
           {
             "callee": "DropTable",
@@ -1334,9 +1218,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Persistence.Migrations",
-        "scope_chain": [
-          "s90"
-        ],
+        "scope_chain": ["s90"],
         "unresolved_calls": [
           {
             "callee": "CreateTable",
@@ -1360,9 +1242,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Persistence.Migrations",
-        "scope_chain": [
-          "s247"
-        ],
+        "scope_chain": ["s247"],
         "unresolved_calls": [
           {
             "callee": "HasAnnotation",
@@ -1392,9 +1272,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.UnitTests",
-        "scope_chain": [
-          "s70"
-        ]
+        "scope_chain": ["s70"]
       },
       "norm_label": ".setup()",
       "source_file": "tests/EventsHub.UnitTests/GlobalTestSetup.cs",
@@ -1410,9 +1288,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.UnitTests",
-        "scope_chain": [
-          "s70"
-        ]
+        "scope_chain": ["s70"]
       },
       "norm_label": ".teardown()",
       "source_file": "tests/EventsHub.UnitTests/GlobalTestSetup.cs",
@@ -1440,9 +1316,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.UnitTests.Mapping",
-        "scope_chain": [
-          "s91"
-        ],
+        "scope_chain": ["s91"],
         "unresolved_calls": [
           {
             "callee": "AddMapper",
@@ -1496,9 +1370,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.UnitTests.Mapping",
-        "scope_chain": [
-          "s91"
-        ],
+        "scope_chain": ["s91"],
         "unresolved_calls": [
           {
             "callee": "Throws",
@@ -1534,9 +1406,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.UnitTests.Mapping",
-        "scope_chain": [
-          "s91"
-        ],
+        "scope_chain": ["s91"],
         "unresolved_calls": [
           {
             "callee": "Throws",
@@ -1572,9 +1442,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.UnitTests.Mapping",
-        "scope_chain": [
-          "s91"
-        ],
+        "scope_chain": ["s91"],
         "unresolved_calls": [
           {
             "callee": "Throws",
@@ -1598,9 +1466,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.UnitTests.Mapping",
-        "scope_chain": [
-          "s91"
-        ],
+        "scope_chain": ["s91"],
         "unresolved_calls": [
           {
             "callee": "Throws",
@@ -1624,9 +1490,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.UnitTests.Mapping",
-        "scope_chain": [
-          "s91"
-        ],
+        "scope_chain": ["s91"],
         "unresolved_calls": [
           {
             "callee": "That",
@@ -1662,9 +1526,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.UnitTests.Mapping",
-        "scope_chain": [
-          "s91"
-        ],
+        "scope_chain": ["s91"],
         "unresolved_calls": [
           {
             "callee": "That",
@@ -1706,9 +1568,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.UnitTests.Mapping",
-        "scope_chain": [
-          "s91"
-        ],
+        "scope_chain": ["s91"],
         "unresolved_calls": [
           {
             "callee": "Multiple",
@@ -1744,9 +1604,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.UnitTests.Mapping",
-        "scope_chain": [
-          "s91"
-        ],
+        "scope_chain": ["s91"],
         "unresolved_calls": [
           {
             "callee": "DoesNotThrow",
@@ -1788,9 +1646,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.UnitTests.Mapping",
-        "scope_chain": [
-          "s91"
-        ],
+        "scope_chain": ["s91"],
         "unresolved_calls": [
           {
             "callee": "Multiple",
@@ -1826,9 +1682,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.UnitTests.Mapping",
-        "scope_chain": [
-          "s91"
-        ],
+        "scope_chain": ["s91"],
         "unresolved_calls": [
           {
             "callee": "Multiple",
@@ -1864,9 +1718,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.UnitTests.Mapping",
-        "scope_chain": [
-          "s91"
-        ],
+        "scope_chain": ["s91"],
         "unresolved_calls": [
           {
             "callee": "Multiple",
@@ -1902,9 +1754,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.UnitTests.Mapping",
-        "scope_chain": [
-          "s91"
-        ],
+        "scope_chain": ["s91"],
         "unresolved_calls": [
           {
             "callee": "That",
@@ -1934,9 +1784,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.UnitTests.Mapping",
-        "scope_chain": [
-          "s91"
-        ],
+        "scope_chain": ["s91"],
         "unresolved_calls": [
           {
             "callee": "That",
@@ -1960,9 +1808,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.UnitTests.Mapping",
-        "scope_chain": [
-          "s91"
-        ],
+        "scope_chain": ["s91"],
         "unresolved_calls": [
           {
             "callee": "Throws",
@@ -1998,9 +1844,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.UnitTests.Mapping",
-        "scope_chain": [
-          "s91"
-        ],
+        "scope_chain": ["s91"],
         "unresolved_calls": [
           {
             "callee": "Throws",
@@ -2024,9 +1868,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.UnitTests.Mapping",
-        "scope_chain": [
-          "s91"
-        ]
+        "scope_chain": ["s91"]
       },
       "norm_label": ".parentmapper()",
       "source_file": "tests/EventsHub.Application.UnitTests/Mapping/MapperTests.cs",
@@ -2042,9 +1884,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.UnitTests.Mapping",
-        "scope_chain": [
-          "s91"
-        ]
+        "scope_chain": ["s91"]
       },
       "norm_label": ".personmapper()",
       "source_file": "tests/EventsHub.Application.UnitTests/Mapping/MapperTests.cs",
@@ -2060,9 +1900,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.Core.Mapping",
-        "scope_chain": [
-          "s32"
-        ]
+        "scope_chain": ["s32"]
       },
       "norm_label": ".formember()",
       "source_file": "src/EventsHub.Application/Core/Mapping/IMappingExpression.cs",
@@ -2078,9 +1916,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.Core.Mapping",
-        "scope_chain": [
-          "s32"
-        ]
+        "scope_chain": ["s32"]
       },
       "norm_label": ".ignore()",
       "source_file": "src/EventsHub.Application/Core/Mapping/IMappingExpression.cs",
@@ -2096,9 +1932,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.Core.Mapping",
-        "scope_chain": [
-          "s32"
-        ]
+        "scope_chain": ["s32"]
       },
       "norm_label": ".mapfrom()",
       "source_file": "src/EventsHub.Application/Core/Mapping/IMappingExpression.cs",
@@ -2114,9 +1948,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.Core.Mapping",
-        "scope_chain": [
-          "s0"
-        ],
+        "scope_chain": ["s0"],
         "unresolved_calls": [
           {
             "callee": "Add",
@@ -2140,9 +1972,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.Core.Mapping",
-        "scope_chain": [
-          "s83"
-        ]
+        "scope_chain": ["s83"]
       },
       "norm_label": ".ignore()",
       "source_file": "src/EventsHub.Application/Core/Mapping/TypeMap.cs",
@@ -2158,9 +1988,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.Core.Mapping",
-        "scope_chain": [
-          "s83"
-        ],
+        "scope_chain": ["s83"],
         "unresolved_calls": [
           {
             "callee": "ThrowIfNull",
@@ -2184,9 +2012,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.Core.Mapping",
-        "scope_chain": [
-          "s83"
-        ],
+        "scope_chain": ["s83"],
         "unresolved_calls": [
           {
             "callee": "Parameter",
@@ -2276,9 +2102,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.Core.Mapping",
-        "scope_chain": [
-          "s83"
-        ],
+        "scope_chain": ["s83"],
         "unresolved_calls": [
           {
             "callee": "Convert",
@@ -2320,9 +2144,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.Core.Mapping",
-        "scope_chain": [
-          "s83"
-        ],
+        "scope_chain": ["s83"],
         "unresolved_calls": [
           {
             "callee": "ThrowIfNull",
@@ -2346,9 +2168,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.Core.Mapping",
-        "scope_chain": [
-          "s83"
-        ],
+        "scope_chain": ["s83"],
         "unresolved_calls": [
           {
             "callee": "GetIndexParameters",
@@ -2372,9 +2192,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.Core.Mapping",
-        "scope_chain": [
-          "s83"
-        ],
+        "scope_chain": ["s83"],
         "unresolved_calls": [
           {
             "callee": "CreateInstance",
@@ -2398,9 +2216,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.Core.Mapping",
-        "scope_chain": [
-          "s83"
-        ]
+        "scope_chain": ["s83"]
       },
       "norm_label": ".mapinto()",
       "source_file": "src/EventsHub.Application/Core/Mapping/TypeMap.cs",
@@ -2416,9 +2232,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.Core.Mapping",
-        "scope_chain": [
-          "s83"
-        ]
+        "scope_chain": ["s83"]
       },
       "norm_label": ".mapnested()",
       "source_file": "src/EventsHub.Application/Core/Mapping/TypeMap.cs",
@@ -2434,9 +2248,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.Core.Mapping",
-        "scope_chain": [
-          "s83"
-        ]
+        "scope_chain": ["s83"]
       },
       "norm_label": ".mapnew()",
       "source_file": "src/EventsHub.Application/Core/Mapping/TypeMap.cs",
@@ -2452,9 +2264,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.Core.Mapping",
-        "scope_chain": [
-          "s83"
-        ]
+        "scope_chain": ["s83"]
       },
       "norm_label": ".trygetelementtype()",
       "source_file": "src/EventsHub.Application/Core/Mapping/TypeMap.cs",
@@ -2470,9 +2280,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.UnitTests.Mapping",
-        "scope_chain": [
-          "s43"
-        ]
+        "scope_chain": ["s43"]
       },
       "norm_label": ".map()",
       "source_file": "tests/EventsHub.Application.UnitTests/Mapping/MapperFixtures.cs",
@@ -2488,9 +2296,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.Events.Commands",
-        "scope_chain": [
-          "s73"
-        ]
+        "scope_chain": ["s73"]
       },
       "norm_label": ".handle()",
       "source_file": "src/EventsHub.Application/Events/Commands/CreateEvent.cs",
@@ -2506,9 +2312,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.Events.Commands",
-        "scope_chain": [
-          "s48"
-        ]
+        "scope_chain": ["s48"]
       },
       "norm_label": ".handle()",
       "source_file": "src/EventsHub.Application/Events/Commands/DeleteEvent.cs",
@@ -2524,9 +2328,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.Events.Queries",
-        "scope_chain": [
-          "s73"
-        ]
+        "scope_chain": ["s73"]
       },
       "norm_label": ".handle()",
       "source_file": "src/EventsHub.Application/Events/Queries/GetEventDetails.cs",
@@ -2542,9 +2344,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.Events.Queries",
-        "scope_chain": [
-          "s185"
-        ],
+        "scope_chain": ["s185"],
         "unresolved_calls": [
           {
             "callee": "ThrowIfCancellationRequested",
@@ -2580,9 +2380,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.Core.Mapping",
-        "scope_chain": [
-          "s0"
-        ]
+        "scope_chain": ["s0"]
       },
       "norm_label": ".map()",
       "source_file": "src/EventsHub.Application/Core/Mapping/IMapper.cs",
@@ -2598,9 +2396,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.Core.Mapping",
-        "scope_chain": [
-          "s74"
-        ],
+        "scope_chain": ["s74"],
         "unresolved_calls": [
           {
             "callee": "ThrowIfNull",
@@ -2636,9 +2432,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.Events.Commands",
-        "scope_chain": [
-          "s116"
-        ]
+        "scope_chain": ["s116"]
       },
       "norm_label": ".handle()",
       "source_file": "src/EventsHub.Application/Events/Commands/EditEvent.cs",
@@ -2654,9 +2448,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.Core.Mapping",
-        "scope_chain": [
-          "s74"
-        ],
+        "scope_chain": ["s74"],
         "unresolved_calls": [
           {
             "callee": "CreateInstance",
@@ -2680,9 +2472,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Api.Controllers",
-        "scope_chain": [
-          "s151"
-        ],
+        "scope_chain": ["s151"],
         "unresolved_calls": [
           {
             "callee": "Send",
@@ -2706,9 +2496,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Api.Controllers",
-        "scope_chain": [
-          "s151"
-        ],
+        "scope_chain": ["s151"],
         "unresolved_calls": [
           {
             "callee": "Send",
@@ -2732,9 +2520,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Api.Controllers",
-        "scope_chain": [
-          "s151"
-        ],
+        "scope_chain": ["s151"],
         "unresolved_calls": [
           {
             "callee": "Send",
@@ -2758,9 +2544,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Api.Controllers",
-        "scope_chain": [
-          "s151"
-        ],
+        "scope_chain": ["s151"],
         "unresolved_calls": [
           {
             "callee": "Send",
@@ -2784,9 +2568,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Api.Controllers",
-        "scope_chain": [
-          "s151"
-        ],
+        "scope_chain": ["s151"],
         "unresolved_calls": [
           {
             "callee": "Send",
@@ -2810,9 +2592,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Api.Controllers",
-        "scope_chain": [
-          "s35"
-        ],
+        "scope_chain": ["s35"],
         "unresolved_calls": [
           {
             "callee": "Range",
@@ -2842,9 +2622,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.UnitTests.Controllers",
-        "scope_chain": [
-          "s147"
-        ],
+        "scope_chain": ["s147"],
         "unresolved_calls": [
           {
             "callee": "NewGuid",
@@ -2892,9 +2670,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.UnitTests.Controllers",
-        "scope_chain": [
-          "s147"
-        ],
+        "scope_chain": ["s147"],
         "unresolved_calls": [
           {
             "callee": "That",
@@ -2930,9 +2706,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.UnitTests.Controllers",
-        "scope_chain": [
-          "s147"
-        ],
+        "scope_chain": ["s147"],
         "unresolved_calls": [
           {
             "callee": "That",
@@ -2956,9 +2730,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.UnitTests.Controllers",
-        "scope_chain": [
-          "s147"
-        ]
+        "scope_chain": ["s147"]
       },
       "norm_label": ".setup()",
       "source_file": "tests/EventsHub.UnitTests/Controllers/EventsControllerTests.cs",
@@ -5806,9 +5578,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Api",
-        "scope_chain": [
-          "s0"
-        ]
+        "scope_chain": ["s0"]
       },
       "norm_label": "date",
       "source_file": "src/EventsHub.Api/WeatherForecast.cs",
@@ -5823,9 +5593,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Api",
-        "scope_chain": [
-          "s0"
-        ]
+        "scope_chain": ["s0"]
       },
       "norm_label": "summary",
       "source_file": "src/EventsHub.Api/WeatherForecast.cs",
@@ -5840,9 +5608,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Api",
-        "scope_chain": [
-          "s0"
-        ]
+        "scope_chain": ["s0"]
       },
       "norm_label": "temperaturec",
       "source_file": "src/EventsHub.Api/WeatherForecast.cs",
@@ -5857,9 +5623,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Api",
-        "scope_chain": [
-          "s0"
-        ]
+        "scope_chain": ["s0"]
       },
       "norm_label": "temperaturef",
       "source_file": "src/EventsHub.Api/WeatherForecast.cs",
@@ -6234,9 +5998,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.UnitTests",
-        "scope_chain": [
-          "s70"
-        ]
+        "scope_chain": ["s70"]
       },
       "norm_label": "appdbcontext",
       "source_file": "tests/EventsHub.UnitTests/GlobalTestSetup.cs",
@@ -8136,9 +7898,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.UnitTests.Mapping",
-        "scope_chain": [
-          "s43"
-        ]
+        "scope_chain": ["s43"]
       },
       "norm_label": "name",
       "source_file": "tests/EventsHub.Application.UnitTests/Mapping/MapperFixtures.cs",
@@ -8153,9 +7913,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.UnitTests.Mapping",
-        "scope_chain": [
-          "s43"
-        ]
+        "scope_chain": ["s43"]
       },
       "norm_label": "name",
       "source_file": "tests/EventsHub.Application.UnitTests/Mapping/MapperFixtures.cs",
@@ -8170,9 +7928,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.UnitTests.Mapping",
-        "scope_chain": [
-          "s43"
-        ]
+        "scope_chain": ["s43"]
       },
       "norm_label": "name",
       "source_file": "tests/EventsHub.Application.UnitTests/Mapping/MapperFixtures.cs",
@@ -8187,9 +7943,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.UnitTests.Mapping",
-        "scope_chain": [
-          "s43"
-        ]
+        "scope_chain": ["s43"]
       },
       "norm_label": "child",
       "source_file": "tests/EventsHub.Application.UnitTests/Mapping/MapperFixtures.cs",
@@ -8204,9 +7958,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.UnitTests.Mapping",
-        "scope_chain": [
-          "s43"
-        ]
+        "scope_chain": ["s43"]
       },
       "norm_label": "extras",
       "source_file": "tests/EventsHub.Application.UnitTests/Mapping/MapperFixtures.cs",
@@ -8221,9 +7973,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.UnitTests.Mapping",
-        "scope_chain": [
-          "s43"
-        ]
+        "scope_chain": ["s43"]
       },
       "norm_label": "items",
       "source_file": "tests/EventsHub.Application.UnitTests/Mapping/MapperFixtures.cs",
@@ -8238,9 +7988,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.UnitTests.Mapping",
-        "scope_chain": [
-          "s43"
-        ]
+        "scope_chain": ["s43"]
       },
       "norm_label": "child",
       "source_file": "tests/EventsHub.Application.UnitTests/Mapping/MapperFixtures.cs",
@@ -8255,9 +8003,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.UnitTests.Mapping",
-        "scope_chain": [
-          "s43"
-        ]
+        "scope_chain": ["s43"]
       },
       "norm_label": "extras",
       "source_file": "tests/EventsHub.Application.UnitTests/Mapping/MapperFixtures.cs",
@@ -8272,9 +8018,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.UnitTests.Mapping",
-        "scope_chain": [
-          "s43"
-        ]
+        "scope_chain": ["s43"]
       },
       "norm_label": "items",
       "source_file": "tests/EventsHub.Application.UnitTests/Mapping/MapperFixtures.cs",
@@ -8289,9 +8033,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.UnitTests.Mapping",
-        "scope_chain": [
-          "s43"
-        ]
+        "scope_chain": ["s43"]
       },
       "norm_label": "age",
       "source_file": "tests/EventsHub.Application.UnitTests/Mapping/MapperFixtures.cs",
@@ -8306,9 +8048,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.UnitTests.Mapping",
-        "scope_chain": [
-          "s43"
-        ]
+        "scope_chain": ["s43"]
       },
       "norm_label": "name",
       "source_file": "tests/EventsHub.Application.UnitTests/Mapping/MapperFixtures.cs",
@@ -8323,9 +8063,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.UnitTests.Mapping",
-        "scope_chain": [
-          "s43"
-        ]
+        "scope_chain": ["s43"]
       },
       "norm_label": "nickname",
       "source_file": "tests/EventsHub.Application.UnitTests/Mapping/MapperFixtures.cs",
@@ -8340,9 +8078,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.UnitTests.Mapping",
-        "scope_chain": [
-          "s43"
-        ]
+        "scope_chain": ["s43"]
       },
       "norm_label": "readonly",
       "source_file": "tests/EventsHub.Application.UnitTests/Mapping/MapperFixtures.cs",
@@ -8357,9 +8093,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.UnitTests.Mapping",
-        "scope_chain": [
-          "s43"
-        ]
+        "scope_chain": ["s43"]
       },
       "norm_label": "secret",
       "source_file": "tests/EventsHub.Application.UnitTests/Mapping/MapperFixtures.cs",
@@ -8374,9 +8108,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.UnitTests.Mapping",
-        "scope_chain": [
-          "s43"
-        ]
+        "scope_chain": ["s43"]
       },
       "norm_label": "age",
       "source_file": "tests/EventsHub.Application.UnitTests/Mapping/MapperFixtures.cs",
@@ -8391,9 +8123,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.UnitTests.Mapping",
-        "scope_chain": [
-          "s43"
-        ]
+        "scope_chain": ["s43"]
       },
       "norm_label": "label",
       "source_file": "tests/EventsHub.Application.UnitTests/Mapping/MapperFixtures.cs",
@@ -8408,9 +8138,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.UnitTests.Mapping",
-        "scope_chain": [
-          "s43"
-        ]
+        "scope_chain": ["s43"]
       },
       "norm_label": "name",
       "source_file": "tests/EventsHub.Application.UnitTests/Mapping/MapperFixtures.cs",
@@ -8425,9 +8153,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.UnitTests.Mapping",
-        "scope_chain": [
-          "s43"
-        ]
+        "scope_chain": ["s43"]
       },
       "norm_label": "readonly",
       "source_file": "tests/EventsHub.Application.UnitTests/Mapping/MapperFixtures.cs",
@@ -8442,9 +8168,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.UnitTests.Mapping",
-        "scope_chain": [
-          "s43"
-        ]
+        "scope_chain": ["s43"]
       },
       "norm_label": "secret",
       "source_file": "tests/EventsHub.Application.UnitTests/Mapping/MapperFixtures.cs",
@@ -8459,9 +8183,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.UnitTests.Mapping",
-        "scope_chain": [
-          "s43"
-        ]
+        "scope_chain": ["s43"]
       },
       "norm_label": "untouched",
       "source_file": "tests/EventsHub.Application.UnitTests/Mapping/MapperFixtures.cs",
@@ -8641,9 +8363,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.Core.Mapping",
-        "scope_chain": [
-          "s83"
-        ]
+        "scope_chain": ["s83"]
       },
       "norm_label": "isconfigured",
       "source_file": "src/EventsHub.Application/Core/Mapping/TypeMap.cs",
@@ -8658,9 +8378,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.Core.Mapping",
-        "scope_chain": [
-          "s83"
-        ]
+        "scope_chain": ["s83"]
       },
       "norm_label": "destinationtype",
       "source_file": "src/EventsHub.Application/Core/Mapping/TypeMap.cs",
@@ -8675,9 +8393,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.Core.Mapping",
-        "scope_chain": [
-          "s83"
-        ]
+        "scope_chain": ["s83"]
       },
       "norm_label": "profiletype",
       "source_file": "src/EventsHub.Application/Core/Mapping/TypeMap.cs",
@@ -8692,9 +8408,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.Core.Mapping",
-        "scope_chain": [
-          "s83"
-        ]
+        "scope_chain": ["s83"]
       },
       "norm_label": "sourcetype",
       "source_file": "src/EventsHub.Application/Core/Mapping/TypeMap.cs",
@@ -9541,9 +9255,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.Events.Commands",
-        "scope_chain": [
-          "s73"
-        ]
+        "scope_chain": ["s73"]
       },
       "norm_label": "event",
       "source_file": "src/EventsHub.Application/Events/Commands/CreateEvent.cs",
@@ -9580,9 +9292,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.Events.Commands",
-        "scope_chain": [
-          "s48"
-        ]
+        "scope_chain": ["s48"]
       },
       "norm_label": "id",
       "source_file": "src/EventsHub.Application/Events/Commands/DeleteEvent.cs",
@@ -9608,9 +9318,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.Events.Commands",
-        "scope_chain": [
-          "s116"
-        ]
+        "scope_chain": ["s116"]
       },
       "norm_label": "event",
       "source_file": "src/EventsHub.Application/Events/Commands/EditEvent.cs",
@@ -9647,9 +9355,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.Events.Queries",
-        "scope_chain": [
-          "s73"
-        ]
+        "scope_chain": ["s73"]
       },
       "norm_label": "id",
       "source_file": "src/EventsHub.Application/Events/Queries/GetEventDetails.cs",
@@ -9697,9 +9403,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Persistence",
-        "scope_chain": [
-          "s65"
-        ]
+        "scope_chain": ["s65"]
       },
       "norm_label": "events",
       "source_file": "src/EventsHub.Persistence/AppDbContext.cs",
@@ -10162,9 +9866,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.Core.Mapping",
-        "scope_chain": [
-          "s0"
-        ]
+        "scope_chain": ["s0"]
       },
       "norm_label": "maps",
       "source_file": "src/EventsHub.Application/Core/Mapping/Profile.cs",
@@ -10262,9 +9964,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.UnitTests.Mapping",
-        "scope_chain": [
-          "s67"
-        ]
+        "scope_chain": ["s67"]
       },
       "norm_label": "location",
       "source_file": "tests/EventsHub.Application.UnitTests/Mapping/DocumentedProfileExample.cs",
@@ -10279,9 +9979,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Application.UnitTests.Mapping",
-        "scope_chain": [
-          "s67"
-        ]
+        "scope_chain": ["s67"]
       },
       "norm_label": "title",
       "source_file": "tests/EventsHub.Application.UnitTests/Mapping/DocumentedProfileExample.cs",
@@ -11960,9 +11658,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Api.Controllers",
-        "scope_chain": [
-          "s51"
-        ]
+        "scope_chain": ["s51"]
       },
       "norm_label": "mediator",
       "source_file": "src/EventsHub.Api/Controllers/EventsHubBaseController.cs",
@@ -12021,9 +11717,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Domain",
-        "scope_chain": [
-          "s0"
-        ]
+        "scope_chain": ["s0"]
       },
       "norm_label": "category",
       "source_file": "src/EventsHub.Domain/Event.cs",
@@ -12038,9 +11732,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Domain",
-        "scope_chain": [
-          "s0"
-        ]
+        "scope_chain": ["s0"]
       },
       "norm_label": "city",
       "source_file": "src/EventsHub.Domain/Event.cs",
@@ -12055,9 +11747,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Domain",
-        "scope_chain": [
-          "s0"
-        ]
+        "scope_chain": ["s0"]
       },
       "norm_label": "date",
       "source_file": "src/EventsHub.Domain/Event.cs",
@@ -12072,9 +11762,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Domain",
-        "scope_chain": [
-          "s0"
-        ]
+        "scope_chain": ["s0"]
       },
       "norm_label": "description",
       "source_file": "src/EventsHub.Domain/Event.cs",
@@ -12089,9 +11777,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Domain",
-        "scope_chain": [
-          "s0"
-        ]
+        "scope_chain": ["s0"]
       },
       "norm_label": "id",
       "source_file": "src/EventsHub.Domain/Event.cs",
@@ -12106,9 +11792,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Domain",
-        "scope_chain": [
-          "s0"
-        ]
+        "scope_chain": ["s0"]
       },
       "norm_label": "iscancelled",
       "source_file": "src/EventsHub.Domain/Event.cs",
@@ -12123,9 +11807,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Domain",
-        "scope_chain": [
-          "s0"
-        ]
+        "scope_chain": ["s0"]
       },
       "norm_label": "latitude",
       "source_file": "src/EventsHub.Domain/Event.cs",
@@ -12140,9 +11822,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Domain",
-        "scope_chain": [
-          "s0"
-        ]
+        "scope_chain": ["s0"]
       },
       "norm_label": "longitude",
       "source_file": "src/EventsHub.Domain/Event.cs",
@@ -12157,9 +11837,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Domain",
-        "scope_chain": [
-          "s0"
-        ]
+        "scope_chain": ["s0"]
       },
       "norm_label": "title",
       "source_file": "src/EventsHub.Domain/Event.cs",
@@ -12174,9 +11852,7 @@
       "file_type": "code",
       "metadata": {
         "namespace": "EventsHub.Domain",
-        "scope_chain": [
-          "s0"
-        ]
+        "scope_chain": ["s0"]
       },
       "norm_label": "venue",
       "source_file": "src/EventsHub.Domain/Event.cs",

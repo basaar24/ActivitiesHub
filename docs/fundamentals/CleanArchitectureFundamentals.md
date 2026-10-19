@@ -4,11 +4,11 @@ A reference guide to Clean Architecture in .NET: what it is, how the layers fit 
 
 **How to read this guide.** Each topic carries a depth label, shown both in its heading and in a blockquote at the top of its body:
 
-| Depth | Meaning |
-|---|---|
-| **General** | Concepts and vocabulary. No prior knowledge of the pattern needed. |
-| **Intermediate** | Working knowledge: how to apply the idea in a real .NET solution. |
-| **Advanced** | Trade-offs, edge cases, and design decisions. |
+| Depth            | Meaning                                                            |
+| ---------------- | ------------------------------------------------------------------ |
+| **General**      | Concepts and vocabulary. No prior knowledge of the pattern needed. |
+| **Intermediate** | Working knowledge: how to apply the idea in a real .NET solution.  |
+| **Advanced**     | Trade-offs, edge cases, and design decisions.                      |
 
 **About the code samples.** Samples omit `using` directives and a few supporting types (`Attendee`, `DomainException`, `IDomainEvent`, `AttendeeRegistered`, `ApplicationAssemblyMarker`) to stay focused on the idea being shown. Treat them as illustrations to adapt, not copy-paste-ready files.
 
@@ -48,11 +48,11 @@ What you get in return: rules that are testable in milliseconds, infrastructure 
 
 Clean Architecture did not appear from nothing. It is a synthesis of several earlier ideas that share one goal: isolate the domain from technical concerns.
 
-| Style | Author / year | Core idea |
-|---|---|---|
-| **Hexagonal (Ports & Adapters)** | Alistair Cockburn, 2005 | The application core exposes *ports* (interfaces); *adapters* (web, database, queue) plug into them from outside. |
-| **Onion Architecture** | Jeffrey Palermo, 2008 | Concentric layers with the domain model at the center; all coupling points inward. |
-| **Clean Architecture** | Robert C. Martin, 2012 | Unifies the above into four named circles governed by a single Dependency Rule. |
+| Style                            | Author / year           | Core idea                                                                                                         |
+| -------------------------------- | ----------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| **Hexagonal (Ports & Adapters)** | Alistair Cockburn, 2005 | The application core exposes _ports_ (interfaces); _adapters_ (web, database, queue) plug into them from outside. |
+| **Onion Architecture**           | Jeffrey Palermo, 2008   | Concentric layers with the domain model at the center; all coupling points inward.                                |
+| **Clean Architecture**           | Robert C. Martin, 2012  | Unifies the above into four named circles governed by a single Dependency Rule.                                   |
 
 They differ mostly in vocabulary and in how many layers they name. In practice, a .NET solution built in any of the three styles looks very similar: a domain core, an application layer with use cases and abstractions, and outer projects that implement those abstractions.
 
@@ -78,7 +78,7 @@ The whole architecture rests on one rule:
 
 > **Source code dependencies must point only inward, toward higher-level policies.**
 
-An inner layer must not know anything about an outer layer: no `using` statement, no project reference, no type name. The inner layer defines *what it needs* as an interface, and the outer layer supplies the implementation. That reversal is called **dependency inversion**.
+An inner layer must not know anything about an outer layer: no `using` statement, no project reference, no type name. The inner layer defines _what it needs_ as an interface, and the outer layer supplies the implementation. That reversal is called **dependency inversion**.
 
 A concrete example. The application needs to save an event. It does not call EF Core; it depends on an interface it owns:
 
@@ -103,7 +103,7 @@ internal sealed class EventRepository(EventsHubDbContext db) : IEventRepository
 }
 ```
 
-At runtime, control flows from the API to the application to the database. At compile time, the dependency arrow between application and persistence points the *opposite* way: persistence references application, not the reverse.
+At runtime, control flows from the API to the application to the database. At compile time, the dependency arrow between application and persistence points the _opposite_ way: persistence references application, not the reverse.
 
 ```mermaid
 %%{init: {"theme": "base", "themeVariables": {"primaryColor": "#ECECFF", "primaryBorderColor": "#9370DB", "primaryTextColor": "#1e293b", "secondaryColor": "#f6f8fa", "tertiaryColor": "#f6f8fa", "clusterBkg": "#f6f8fa", "clusterBorder": "#d0d7de", "titleColor": "#1e293b", "lineColor": "#57606a", "edgeLabelBackground": "#ffffff"}}}%%
@@ -141,12 +141,12 @@ flowchart TB
     UC -->|depends on| E
 ```
 
-| Circle | Contains | Changes when… | .NET equivalent |
-|---|---|---|---|
-| **Entities** | Enterprise-wide rules and data that would exist even without software | The business itself changes | `Domain` project |
-| **Use Cases** | Application-specific workflows that orchestrate entities | A feature or workflow changes | `Application` project |
-| **Interface Adapters** | Converters between use-case data and external formats | An API shape or storage format changes | Controllers, DTO mappers, repositories |
-| **Frameworks & Drivers** | The glue to concrete technology | You change tools or vendors | ASP.NET Core host, EF Core, SDK clients |
+| Circle                   | Contains                                                              | Changes when…                          | .NET equivalent                         |
+| ------------------------ | --------------------------------------------------------------------- | -------------------------------------- | --------------------------------------- |
+| **Entities**             | Enterprise-wide rules and data that would exist even without software | The business itself changes            | `Domain` project                        |
+| **Use Cases**            | Application-specific workflows that orchestrate entities              | A feature or workflow changes          | `Application` project                   |
+| **Interface Adapters**   | Converters between use-case data and external formats                 | An API shape or storage format changes | Controllers, DTO mappers, repositories  |
+| **Frameworks & Drivers** | The glue to concrete technology                                       | You change tools or vendors            | ASP.NET Core host, EF Core, SDK clients |
 
 The number of circles is not sacred. Martin himself says you may need more or fewer. What matters is that the dependency arrows keep pointing inward.
 
@@ -156,13 +156,13 @@ The number of circles is not sacred. Martin himself says you may need more or fe
 
 Clean Architecture applies the SOLID principles at the scale of whole projects. Knowing them makes the structure feel like consequences instead of conventions.
 
-| Principle | Statement | How it shows up |
-|---|---|---|
-| **S**ingle Responsibility | A module has one reason to change. | One handler per use case; entities hold rules, repositories hold persistence. |
-| **O**pen/Closed | Open for extension, closed for modification. | New behavior arrives as a new handler or pipeline behavior, not edits to existing ones. |
-| **L**iskov Substitution | Subtypes must be usable wherever the base type is. | A fake repository in tests behaves like the real one from the caller's view. |
-| **I**nterface Segregation | Prefer small, focused interfaces. | `IEventRepository` instead of one giant `IDataAccess`. |
-| **D**ependency Inversion | Depend on abstractions, not concretions. | The Dependency Rule itself: inner layers own the interfaces. |
+| Principle                 | Statement                                          | How it shows up                                                                         |
+| ------------------------- | -------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| **S**ingle Responsibility | A module has one reason to change.                 | One handler per use case; entities hold rules, repositories hold persistence.           |
+| **O**pen/Closed           | Open for extension, closed for modification.       | New behavior arrives as a new handler or pipeline behavior, not edits to existing ones. |
+| **L**iskov Substitution   | Subtypes must be usable wherever the base type is. | A fake repository in tests behaves like the real one from the caller's view.            |
+| **I**nterface Segregation | Prefer small, focused interfaces.                  | `IEventRepository` instead of one giant `IDataAccess`.                                  |
+| **D**ependency Inversion  | Depend on abstractions, not concretions.           | The Dependency Rule itself: inner layers own the interfaces.                            |
 
 **Dependency Inversion is the load-bearing one.** Without it, the Application layer would have to reference Persistence to save data, and the dependency arrows would point outward. With it, Application declares `IEventRepository`, Persistence implements it, and the arrows point inward.
 
@@ -388,12 +388,12 @@ flowchart TB
     Pers --> Dom
 ```
 
-| Project | References | Must not reference |
-|---|---|---|
-| `Domain` | nothing | everything else |
-| `Application` | `Domain` | `Persistence`, `Api`, EF Core, ASP.NET Core |
-| `Persistence` | `Application`, `Domain` | `Api` |
-| `Api` | `Application`, `Persistence` (only to register services) | — |
+| Project       | References                                               | Must not reference                          |
+| ------------- | -------------------------------------------------------- | ------------------------------------------- |
+| `Domain`      | nothing                                                  | everything else                             |
+| `Application` | `Domain`                                                 | `Persistence`, `Api`, EF Core, ASP.NET Core |
+| `Persistence` | `Application`, `Domain`                                  | `Api`                                       |
+| `Api`         | `Application`, `Persistence` (only to register services) | —                                           |
 
 Three practical safeguards:
 
@@ -411,7 +411,7 @@ Three practical safeguards:
 
 **Dependency Injection (DI)** means a class receives its collaborators from outside instead of creating them. It is the mechanism that makes the Dependency Rule workable: the use case asks for an `IEventRepository`, and something else decides which implementation to provide.
 
-The **composition root** is the single place where the object graph is assembled. In ASP.NET Core this is `Program.cs`. Everything else in the codebase should only *receive* dependencies through constructors.
+The **composition root** is the single place where the object graph is assembled. In ASP.NET Core this is `Program.cs`. Everything else in the codebase should only _receive_ dependencies through constructors.
 
 ```csharp
 var builder = WebApplication.CreateBuilder(args);
@@ -431,11 +431,11 @@ Each layer exposes one `AddXxx` extension so the host stays short and each layer
 
 **Lifetimes** matter:
 
-| Lifetime | Instance per… | Typical use |
-|---|---|---|
-| Transient | Every request for the service | Lightweight, stateless services |
-| Scoped | HTTP request | `DbContext`, repositories, unit of work |
-| Singleton | Application lifetime | Caches, configuration, stateless clients |
+| Lifetime  | Instance per…                 | Typical use                              |
+| --------- | ----------------------------- | ---------------------------------------- |
+| Transient | Every request for the service | Lightweight, stateless services          |
+| Scoped    | HTTP request                  | `DbContext`, repositories, unit of work  |
+| Singleton | Application lifetime          | Caches, configuration, stateless clients |
 
 The classic mistake is injecting a scoped service (such as a `DbContext`) into a singleton. ASP.NET Core can detect this in Development with scope validation, which is worth leaving on.
 
@@ -463,9 +463,9 @@ public interface IUnitOfWork
 
 **The debate.** EF Core's `DbContext` already implements both patterns: `DbSet<T>` behaves like a repository and `SaveChanges` is a unit of work. So wrapping it in another repository can look like pointless indirection. The two camps:
 
-| Position | Argument |
-|---|---|
-| **Wrap EF Core** | The Application layer stays free of EF Core types; tests can use simple fakes; queries are named after business intent. |
+| Position                     | Argument                                                                                                                                                 |
+| ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Wrap EF Core**             | The Application layer stays free of EF Core types; tests can use simple fakes; queries are named after business intent.                                  |
 | **Use `DbContext` directly** | Less code; access to `Include`, projections, and `AsNoTracking` without reinventing them; a generic repository over EF usually just re-exposes EF badly. |
 
 A pragmatic middle path that many teams settle on:
@@ -479,15 +479,15 @@ Neither answer is universally right. Decide once per project, write it down, and
 
 > **Depth: Intermediate**
 
-**Command Query Responsibility Segregation** separates operations that *change state* (commands) from operations that *read state* (queries).
+**Command Query Responsibility Segregation** separates operations that _change state_ (commands) from operations that _read state_ (queries).
 
-| | Command | Query |
-|---|---|---|
-| Intent | Change something | Ask something |
-| Returns | Nothing, or an ID / result | Data (a DTO) |
-| Side effects | Yes | None |
-| Goes through | Domain model, aggregates | Often straight to the database, projected to DTOs |
-| Example | `CreateEvent`, `CancelEvent` | `GetEventById`, `ListUpcomingEvents` |
+|              | Command                      | Query                                             |
+| ------------ | ---------------------------- | ------------------------------------------------- |
+| Intent       | Change something             | Ask something                                     |
+| Returns      | Nothing, or an ID / result   | Data (a DTO)                                      |
+| Side effects | Yes                          | None                                              |
+| Goes through | Domain model, aggregates     | Often straight to the database, projected to DTOs |
+| Example      | `CreateEvent`, `CancelEvent` | `GetEventById`, `ListUpcomingEvents`              |
 
 ```mermaid
 %%{init: {"theme": "base", "themeVariables": {"primaryColor": "#ECECFF", "primaryBorderColor": "#9370DB", "primaryTextColor": "#1e293b", "secondaryColor": "#f6f8fa", "tertiaryColor": "#f6f8fa", "clusterBkg": "#f6f8fa", "clusterBorder": "#d0d7de", "titleColor": "#1e293b", "lineColor": "#57606a", "edgeLabelBackground": "#ffffff"}}}%%
@@ -594,9 +594,9 @@ public sealed class ValidationBehavior<TRequest, TResponse>(
 
 There are two ways to signal that an operation failed.
 
-**Exceptions** interrupt the normal flow and unwind the stack. They are the right tool for *unexpected* conditions: a lost database connection, a programming error, a broken invariant that should never occur.
+**Exceptions** interrupt the normal flow and unwind the stack. They are the right tool for _unexpected_ conditions: a lost database connection, a programming error, a broken invariant that should never occur.
 
-**The Result pattern** returns success or failure as an ordinary value. It suits *expected* outcomes: "event not found", "event is full", "email already registered". These are normal business results, not exceptional ones.
+**The Result pattern** returns success or failure as an ordinary value. It suits _expected_ outcomes: "event not found", "event is full", "email already registered". These are normal business results, not exceptional ones.
 
 ```csharp
 public sealed record Error(string Code, string Message)
@@ -647,12 +647,12 @@ var result = await sender.Send(new GetEventQuery(id), ct);
 return result.IsSuccess ? Ok(result.Value) : NotFound(result.Error);
 ```
 
-| | Exceptions | Result |
-|---|---|---|
-| Visible in the method signature | No | Yes |
-| Cost when failure is common | High (stack unwinding) | Negligible |
-| Forces callers to handle failure | No | Yes, if they read the result |
-| Best for | Unexpected, unrecoverable problems | Predictable business outcomes |
+|                                  | Exceptions                         | Result                        |
+| -------------------------------- | ---------------------------------- | ----------------------------- |
+| Visible in the method signature  | No                                 | Yes                           |
+| Cost when failure is common      | High (stack unwinding)             | Negligible                    |
+| Forces callers to handle failure | No                                 | Yes, if they read the result  |
+| Best for                         | Unexpected, unrecoverable problems | Predictable business outcomes |
 
 A common blend: **use Results for expected failures inside the Application layer, and reserve exceptions for truly exceptional situations**, with a global exception handler translating the rest to `500` responses. The important thing is a consistent convention, so the API can translate errors into HTTP status codes (and `ProblemDetails`) in one place.
 
@@ -674,11 +674,11 @@ flowchart LR
 
 Options for moving data between them:
 
-| Approach | Pros | Cons |
-|---|---|---|
-| **Manual mapping** (static methods, extensions) | Explicit, debuggable, compile-time checked, no dependency | More typing |
-| **Mapster** | Fast, code generation option, less reflection | Configuration by convention can hide gaps |
-| **AutoMapper** | Widely known, flexible | Runtime failures for missing maps; encourages mapping domain entities carelessly; commercial license for recent versions |
+| Approach                                        | Pros                                                      | Cons                                                                                                                     |
+| ----------------------------------------------- | --------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| **Manual mapping** (static methods, extensions) | Explicit, debuggable, compile-time checked, no dependency | More typing                                                                                                              |
+| **Mapster**                                     | Fast, code generation option, less reflection             | Configuration by convention can hide gaps                                                                                |
+| **AutoMapper**                                  | Widely known, flexible                                    | Runtime failures for missing maps; encourages mapping domain entities carelessly; commercial license for recent versions |
 
 ```csharp
 public static class EventMappings
@@ -727,12 +727,12 @@ services.AddValidatorsFromAssembly(typeof(ApplicationAssemblyMarker).Assembly);
 
 **Two layers of defense.** Validators reject malformed input early with friendly, field-level messages. Domain invariants still guard the model, because other callers (a background job, a test, another use case) may not go through the validator. Some duplication between the two is intentional.
 
-| | Input validation | Domain invariants |
-|---|---|---|
-| Location | Application boundary | Inside entities and value objects |
-| Purpose | Good error messages for the caller | Model can never be in an invalid state |
-| Failure | List of field errors (`400`) | Domain error or exception |
-| Example | "Title is required" | "An event cannot exceed its capacity" |
+|          | Input validation                   | Domain invariants                      |
+| -------- | ---------------------------------- | -------------------------------------- |
+| Location | Application boundary               | Inside entities and value objects      |
+| Purpose  | Good error messages for the caller | Model can never be in an invalid state |
+| Failure  | List of field errors (`400`)       | Domain error or exception              |
+| Example  | "Title is required"                | "An event cannot exceed its capacity"  |
 
 Validation that needs the database (for example, "title must be unique") belongs in the handler, or behind a domain service, not in a validator that quietly makes queries. It also needs a database constraint as the final guard against race conditions.
 
@@ -758,7 +758,7 @@ Serilog or OpenTelemetry plug in at the composition root. A logging pipeline beh
 
 #### Caching
 
-Caching is a *policy*, so keep it out of the domain. Define an abstraction the Application layer can use and implement it with `IMemoryCache` or a distributed cache:
+Caching is a _policy_, so keep it out of the domain. Define an abstraction the Application layer can use and implement it with `IMemoryCache` or a distributed cache:
 
 ```csharp
 public interface ICacheService
@@ -793,7 +793,7 @@ The API project implements it by reading `HttpContext.User`. Use cases stay test
 
 The HTTP API is a **contract** with its consumers. **OpenAPI** is the standard machine-readable description of that contract: paths, verbs, parameters, request and response schemas, status codes.
 
-Why it fits Clean Architecture: request and response DTOs at the edge are the *public* shape, deliberately separate from your entities. OpenAPI documents exactly that boundary and nothing internal.
+Why it fits Clean Architecture: request and response DTOs at the edge are the _public_ shape, deliberately separate from your entities. OpenAPI documents exactly that boundary and nothing internal.
 
 What a described contract gives you:
 
@@ -854,11 +854,11 @@ services.AddOptions<EmailOptions>()
 
 Consume it with `IOptions<T>`:
 
-| Interface | Behavior | Use when |
-|---|---|---|
-| `IOptions<T>` | Read once at startup | Values never change while running |
-| `IOptionsSnapshot<T>` | Re-read per request (scoped) | Values may change between requests |
-| `IOptionsMonitor<T>` | Live updates plus change notifications | Singletons that need current values |
+| Interface             | Behavior                               | Use when                            |
+| --------------------- | -------------------------------------- | ----------------------------------- |
+| `IOptions<T>`         | Read once at startup                   | Values never change while running   |
+| `IOptionsSnapshot<T>` | Re-read per request (scoped)           | Values may change between requests  |
+| `IOptionsMonitor<T>`  | Live updates plus change notifications | Singletons that need current values |
 
 **Where the options class lives.** If the Application layer needs a setting, define the options class there (or hide it behind an interface), and bind it in the composition root. Infrastructure-only settings, such as SMTP details, can live entirely in the outer layer.
 
@@ -930,7 +930,7 @@ Good habits:
 
 - **Arrange, Act, Assert.** Keep the three phases visually separate.
 - **Name tests by behavior:** `Method_Condition_ExpectedResult`.
-- **Test behavior, not implementation.** Asserting the *outcome* survives refactoring; asserting exact call sequences on mocks often does not.
+- **Test behavior, not implementation.** Asserting the _outcome_ survives refactoring; asserting exact call sequences on mocks often does not.
 - **Control time and randomness** by injecting an `IClock` or `TimeProvider` rather than calling `DateTime.UtcNow` inside the code under test.
 
 ### 22. Mocking Boundaries — Intermediate
@@ -939,13 +939,13 @@ Good habits:
 
 Test doubles stand in for real dependencies. The vocabulary is worth knowing:
 
-| Double | Purpose |
-|---|---|
-| **Dummy** | Fills a parameter; never used |
-| **Stub** | Returns canned answers |
-| **Fake** | A working, simplified implementation (for example, an in-memory repository) |
-| **Mock** | Records calls so the test can verify interactions |
-| **Spy** | A real object wrapped to record its calls |
+| Double    | Purpose                                                                     |
+| --------- | --------------------------------------------------------------------------- |
+| **Dummy** | Fills a parameter; never used                                               |
+| **Stub**  | Returns canned answers                                                      |
+| **Fake**  | A working, simplified implementation (for example, an in-memory repository) |
+| **Mock**  | Records calls so the test can verify interactions                           |
+| **Spy**   | A real object wrapped to record its calls                                   |
 
 **Mock at architectural boundaries**, the interfaces the Application layer owns: repositories, clock, email sender, current user. Do not mock domain entities or value objects; use the real ones, since they are cheap and deterministic.
 
@@ -960,11 +960,11 @@ var repo = Substitute.For<IEventRepository>();
 repo.GetByIdAsync(id, Arg.Any<CancellationToken>()).Returns(existingEvent);
 ```
 
-| Library | Style | Note |
-|---|---|---|
-| **Moq** | `Setup` / `Verify` | Long-standing and widely known |
-| **NSubstitute** | Reads like plain C# | Less ceremony; many teams find it easier to read |
-| **Hand-written fakes** | Plain classes | Best for stateful collaborators such as an in-memory repository |
+| Library                | Style               | Note                                                            |
+| ---------------------- | ------------------- | --------------------------------------------------------------- |
+| **Moq**                | `Setup` / `Verify`  | Long-standing and widely known                                  |
+| **NSubstitute**        | Reads like plain C# | Less ceremony; many teams find it easier to read                |
+| **Hand-written fakes** | Plain classes       | Best for stateful collaborators such as an in-memory repository |
 
 **When a fake beats a mock.** If many tests configure the same repository behavior, write an `InMemoryEventRepository` once. Tests become shorter, and they assert on resulting state instead of on how the handler happened to talk to its dependency.
 
@@ -1014,11 +1014,11 @@ public class CreateEventTests(EventsApiFactory factory) : IClassFixture<EventsAp
 
 **Choosing the test database:**
 
-| Option | Pros | Cons |
-|---|---|---|
-| **EF Core InMemory provider** | Fast, no setup | Not a relational database: ignores constraints, transactions, and SQL translation. Can pass tests that fail in production. |
-| **SQLite in-memory** | Relational, fast | SQL dialect and type differences from your real database |
-| **Real engine in a container** (Testcontainers) | Same behavior as production | Slower; needs Docker |
+| Option                                          | Pros                        | Cons                                                                                                                       |
+| ----------------------------------------------- | --------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| **EF Core InMemory provider**                   | Fast, no setup              | Not a relational database: ignores constraints, transactions, and SQL translation. Can pass tests that fail in production. |
+| **SQLite in-memory**                            | Relational, fast            | SQL dialect and type differences from your real database                                                                   |
+| **Real engine in a container** (Testcontainers) | Same behavior as production | Slower; needs Docker                                                                                                       |
 
 For anything that matters, prefer a **real engine in a container**. It is the only option that reliably catches migration mistakes, constraint violations, and query translation problems.
 
@@ -1142,12 +1142,12 @@ flowchart TB
 
 **Vertical Slice Architecture** takes this further: each feature contains everything it needs top to bottom and may choose its own approach (a heavy domain model for one slice, a plain query for another), and slices share little.
 
-| | Clean Architecture (layered) | Vertical Slice |
-|---|---|---|
-| Organized by | Technical concern | Feature / use case |
-| Sharing | Shared domain, shared abstractions | Minimal; duplication tolerated |
-| Strength | Strong global rules, protected core | Fast, local change |
-| Risk | Ceremony and scattered features | Inconsistency between slices |
+|              | Clean Architecture (layered)        | Vertical Slice                 |
+| ------------ | ----------------------------------- | ------------------------------ |
+| Organized by | Technical concern                   | Feature / use case             |
+| Sharing      | Shared domain, shared abstractions  | Minimal; duplication tolerated |
+| Strength     | Strong global rules, protected core | Fast, local change             |
+| Risk         | Ceremony and scattered features     | Inconsistency between slices   |
 
 The two are not exclusive. A very common and effective hybrid is **Clean Architecture project boundaries with feature folders inside each project**. You keep the enforced dependency direction and gain locality of change.
 
@@ -1190,7 +1190,7 @@ An abstraction that exposes the details it was meant to hide.
 - Handlers returning `IActionResult` or referencing `HttpContext`.
 - Domain entities decorated with `[Table]`, `[JsonProperty]`, or `[Key]` attributes.
 
-Test: *could you replace the outer technology without editing the inner layer?* If not, something leaked.
+Test: _could you replace the outer technology without editing the inner layer?_ If not, something leaked.
 
 #### Over-engineering
 
@@ -1202,15 +1202,15 @@ Test: *could you replace the outer technology without editing the inner layer?* 
 
 #### Other frequent problems
 
-| Mistake | Why it hurts | Remedy |
-|---|---|---|
-| Business rules in controllers | Cannot be reused or tested without HTTP | Move into the domain or handlers |
-| Domain depends on Application | Breaks the Dependency Rule | Domain references nothing |
-| One giant "Common" or "Shared" project | Becomes a dumping ground with hidden coupling | Keep shared code small and explicit |
-| Handlers calling other handlers | Hidden dependencies, tangled flow | Extract shared logic to a domain or application service |
-| Ignoring the read side | Loading full aggregates just to display a list | Project directly into DTOs |
+| Mistake                                | Why it hurts                                   | Remedy                                                  |
+| -------------------------------------- | ---------------------------------------------- | ------------------------------------------------------- |
+| Business rules in controllers          | Cannot be reused or tested without HTTP        | Move into the domain or handlers                        |
+| Domain depends on Application          | Breaks the Dependency Rule                     | Domain references nothing                               |
+| One giant "Common" or "Shared" project | Becomes a dumping ground with hidden coupling  | Keep shared code small and explicit                     |
+| Handlers calling other handlers        | Hidden dependencies, tangled flow              | Extract shared logic to a domain or application service |
+| Ignoring the read side                 | Loading full aggregates just to display a list | Project directly into DTOs                              |
 
-### 27. When *Not* to Use Clean Architecture — General
+### 27. When _Not_ to Use Clean Architecture — General
 
 > **Depth: General**
 
@@ -1251,7 +1251,7 @@ A big-bang rewrite into Clean Architecture nearly always fails: it freezes featu
 **Step-by-step approach:**
 
 1. **Establish a safety net first.** Add characterization tests around current behavior (integration tests through the API are the most efficient starting point). You cannot refactor safely without them.
-2. **Stop the bleeding.** Agree that *new* code follows the target structure, even while old code does not. Add architecture tests for the new areas only.
+2. **Stop the bleeding.** Agree that _new_ code follows the target structure, even while old code does not. Add architecture tests for the new areas only.
 3. **Create the target projects** (`Domain`, `Application`) empty, next to the existing code. Add references in the correct direction.
 4. **Extract along a seam, one use case at a time.** Choose a feature, move its business rules out of the controller or service into a handler and domain objects, and hide data access behind an interface.
 5. **Invert the first dependencies.** Define interfaces in Application and make the old data-access code implement them. This is where the dependency arrows flip.
@@ -1299,20 +1299,20 @@ tests/
 
 #### Steps
 
-| # | Layer | Task | Topics |
-|---|---|---|---|
-| 1 | Setup | Create the projects and set the references so the direction is correct. | 10 |
-| 2 | Domain | Write `DateRange` and `Event.Create` with invariants. No dependencies. | 6 |
-| 3 | Domain tests | Test each invariant (empty title, bad capacity, end before start). | 21 |
-| 4 | Application | Define `IEventRepository` and `IUnitOfWork`. | 3, 7 |
-| 5 | Application | Write `CreateEventCommand`, its handler, and a FluentValidation validator. | 7, 13, 17 |
-| 6 | Application tests | Test the handler with mocks or a fake repository. | 21, 22 |
-| 7 | Persistence | Add the `DbContext`, the `Event` configuration, a repository, and a migration. | 8 |
-| 8 | API | Add the controller or minimal-API endpoint and register services in the composition root. | 9, 11 |
-| 9 | Errors | Return `400` for validation failures using `ProblemDetails`. | 15, 17 |
-| 10 | Integration | Test `POST /api/events` with `WebApplicationFactory`. | 23 |
-| 11 | Architecture | Add tests that the Domain has no outward dependencies and Application has no EF Core reference. | 24 |
-| 12 | Contract | Generate the OpenAPI document and confirm `POST /api/events` appears with its response types. | 19 |
+| #   | Layer             | Task                                                                                            | Topics    |
+| --- | ----------------- | ----------------------------------------------------------------------------------------------- | --------- |
+| 1   | Setup             | Create the projects and set the references so the direction is correct.                         | 10        |
+| 2   | Domain            | Write `DateRange` and `Event.Create` with invariants. No dependencies.                          | 6         |
+| 3   | Domain tests      | Test each invariant (empty title, bad capacity, end before start).                              | 21        |
+| 4   | Application       | Define `IEventRepository` and `IUnitOfWork`.                                                    | 3, 7      |
+| 5   | Application       | Write `CreateEventCommand`, its handler, and a FluentValidation validator.                      | 7, 13, 17 |
+| 6   | Application tests | Test the handler with mocks or a fake repository.                                               | 21, 22    |
+| 7   | Persistence       | Add the `DbContext`, the `Event` configuration, a repository, and a migration.                  | 8         |
+| 8   | API               | Add the controller or minimal-API endpoint and register services in the composition root.       | 9, 11     |
+| 9   | Errors            | Return `400` for validation failures using `ProblemDetails`.                                    | 15, 17    |
+| 10  | Integration       | Test `POST /api/events` with `WebApplicationFactory`.                                           | 23        |
+| 11  | Architecture      | Add tests that the Domain has no outward dependencies and Application has no EF Core reference. | 24        |
+| 12  | Contract          | Generate the OpenAPI document and confirm `POST /api/events` appears with its response types.   | 19        |
 
 #### Stretch goals
 
@@ -1335,15 +1335,15 @@ tests/
 
 ## Glossary
 
-| Term | Meaning |
-|---|---|
-| **Aggregate** | A cluster of domain objects treated as one consistency unit, accessed through its root |
-| **Composition root** | The single place where the object graph is assembled |
-| **CQRS** | Separating operations that change state from operations that read it |
-| **Dependency Rule** | Source-code dependencies point only inward |
-| **DTO** | A plain data shape used to cross a boundary |
-| **Invariant** | A rule that must always hold for a model to be valid |
-| **Port / Adapter** | An interface owned by the core / an implementation that plugs into it |
-| **Use case** | An application-specific operation, such as "create event" |
-| **Value object** | An immutable object defined by its values, with no identity |
-| **Vertical slice** | Organizing code by feature instead of by technical layer |
+| Term                 | Meaning                                                                                |
+| -------------------- | -------------------------------------------------------------------------------------- |
+| **Aggregate**        | A cluster of domain objects treated as one consistency unit, accessed through its root |
+| **Composition root** | The single place where the object graph is assembled                                   |
+| **CQRS**             | Separating operations that change state from operations that read it                   |
+| **Dependency Rule**  | Source-code dependencies point only inward                                             |
+| **DTO**              | A plain data shape used to cross a boundary                                            |
+| **Invariant**        | A rule that must always hold for a model to be valid                                   |
+| **Port / Adapter**   | An interface owned by the core / an implementation that plugs into it                  |
+| **Use case**         | An application-specific operation, such as "create event"                              |
+| **Value object**     | An immutable object defined by its values, with no identity                            |
+| **Vertical slice**   | Organizing code by feature instead of by technical layer                               |

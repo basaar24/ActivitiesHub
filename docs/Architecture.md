@@ -86,7 +86,7 @@ pattern is not actually followed in code:
 - **`EventsHub.Application` is empty.** It has no files beyond its
   `.csproj`. Its only role today is structural: because `Api` references
   only `Application`, and project references are transitive, `Api` reaches
-  `Persistence`/`Domain` *through* `Application` without ever declaring a
+  `Persistence`/`Domain` _through_ `Application` without ever declaring a
   direct reference to either. If `Application` were deleted, `Api`'s
   `using EventsHub.Persistence;` in `Program.cs` would stop compiling.
 - **Controllers talk to EF Core directly.** `EventsController` injects
@@ -103,13 +103,13 @@ current direct-to-`Api` shape and drop the unused layer. Don't assume
 
 ## Generated vs. hand-maintained
 
-| Path | Origin | Rule |
-|---|---|---|
-| `src/EventsHub.*/**/*.cs` (excluding migrations) | Hand-written | Edit directly |
-| `src/EventsHub.Persistence/Migrations/**` | `dotnet ef migrations add` | Regenerate via EF CLI; don't hand-edit |
-| `src/nswag/EventsHub.nswag` | Hand-authored | Edit only to change codegen config |
-| `src/openapi/EventsHub.v1.json` | NSwag, from `EventsHub.OpenApi`'s served doc | **Never hand-edit** |
-| `src/EventsHub.OpenApi/Generated/EventsHubRpcClient.generated.cs` | NSwag CLI | **Never hand-edit** |
+| Path                                                              | Origin                                       | Rule                                   |
+| ----------------------------------------------------------------- | -------------------------------------------- | -------------------------------------- |
+| `src/EventsHub.*/**/*.cs` (excluding migrations)                  | Hand-written                                 | Edit directly                          |
+| `src/EventsHub.Persistence/Migrations/**`                         | `dotnet ef migrations add`                   | Regenerate via EF CLI; don't hand-edit |
+| `src/nswag/EventsHub.nswag`                                       | Hand-authored                                | Edit only to change codegen config     |
+| `src/openapi/EventsHub.v1.json`                                   | NSwag, from `EventsHub.OpenApi`'s served doc | **Never hand-edit**                    |
+| `src/EventsHub.OpenApi/Generated/EventsHubRpcClient.generated.cs` | NSwag CLI                                    | **Never hand-edit**                    |
 
 Full step-by-step provenance (exact commands used to scaffold every piece of
 `src/`) is in [`docs/BackendBuildSteps.md`](BackendBuildSteps.md).
@@ -128,18 +128,18 @@ Full step-by-step provenance (exact commands used to scaffold every piece of
   `ImplicitUsings` enabled, targeting `net10.0`.
 - **Testing:** unit tests bypass HTTP entirely and call controllers
   in-process against a real (not mocked) shared SQLite context; there is a
-  second, separate integration-test suite that *does* exercise real HTTP,
+  second, separate integration-test suite that _does_ exercise real HTTP,
   but through Bruno, not `dotnet test`. See
   [`src/EventsHub.Api/README.md`](../src/EventsHub.Api/README.md#testing)
   for how the two relate.
 
 ## Components
 
-| Component | What it is | README |
-|---|---|---|
-| `src/EventsHub.Domain` | Entities (`Event`) | [README](../src/EventsHub.Domain/README.md) |
+| Component                   | What it is                                  | README                                           |
+| --------------------------- | ------------------------------------------- | ------------------------------------------------ |
+| `src/EventsHub.Domain`      | Entities (`Event`)                          | [README](../src/EventsHub.Domain/README.md)      |
 | `src/EventsHub.Persistence` | EF Core `AppDbContext`, migrations, seeding | [README](../src/EventsHub.Persistence/README.md) |
-| `src/EventsHub.Application` | Unused placeholder layer | [README](../src/EventsHub.Application/README.md) |
-| `src/EventsHub.Api` | The real ASP.NET Core Web API | [README](../src/EventsHub.Api/README.md) |
-| `src/EventsHub.OpenApi` | Standalone OpenAPI-doc/codegen host | [README](../src/EventsHub.OpenApi/README.md) |
-| `web/` | React + Vite + MUI frontend | [README](../web/README.md) |
+| `src/EventsHub.Application` | Unused placeholder layer                    | [README](../src/EventsHub.Application/README.md) |
+| `src/EventsHub.Api`         | The real ASP.NET Core Web API               | [README](../src/EventsHub.Api/README.md)         |
+| `src/EventsHub.OpenApi`     | Standalone OpenAPI-doc/codegen host         | [README](../src/EventsHub.OpenApi/README.md)     |
+| `web/`                      | React + Vite + MUI frontend                 | [README](../web/README.md)                       |

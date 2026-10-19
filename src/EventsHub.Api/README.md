@@ -37,14 +37,14 @@ All routes are versioned under `api/v1/` via the shared
 `[ApiController]`, and a protected `Mediator` property) — new controllers
 should derive from it rather than declaring their own route.
 
-| Method | Route | Description |
-|---|---|---|
-| GET | `/api/v1/Events` | List all events |
-| GET | `/api/v1/Events/{id}` | Get one event by id |
-| POST | `/api/v1/Events` | Create an event (body: `Event`); returns the new id |
-| PUT | `/api/v1/Events` | Edit an event (body: `Event`, matched by its `Id`); `204` on success |
-| DELETE | `/api/v1/Events/{id}` | Delete an event |
-| GET | `/api/v1/WeatherForecast` | Unmodified ASP.NET template sample endpoint, re-parented onto the same base controller |
+| Method | Route                     | Description                                                                            |
+| ------ | ------------------------- | -------------------------------------------------------------------------------------- |
+| GET    | `/api/v1/Events`          | List all events                                                                        |
+| GET    | `/api/v1/Events/{id}`     | Get one event by id                                                                    |
+| POST   | `/api/v1/Events`          | Create an event (body: `Event`); returns the new id                                    |
+| PUT    | `/api/v1/Events`          | Edit an event (body: `Event`, matched by its `Id`); `204` on success                   |
+| DELETE | `/api/v1/Events/{id}`     | Delete an event                                                                        |
+| GET    | `/api/v1/WeatherForecast` | Unmodified ASP.NET template sample endpoint, re-parented onto the same base controller |
 
 Note: the controller declares `400`/`404` responses, but handlers signal
 "not found" with a plain `Exception` and there is no exception-handling

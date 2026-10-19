@@ -3,16 +3,16 @@
 School project (ICI 2026 01): a .NET 10 backend with a React frontend, kept as
 two independent apps in one repo — there is no shared build.
 
-| Path | What it is | README |
-|---|---|---|
-| `src/EventsHub.Api` | ASP.NET Core Web API — the only backend piece in the runtime request path | [README](src/EventsHub.Api/README.md) |
-| `src/EventsHub.Application` | MediatR commands/queries and handlers (the use cases) | [README](src/EventsHub.Application/README.md) |
-| `src/EventsHub.Domain` | The `Event` entity | [README](src/EventsHub.Domain/README.md) |
-| `src/EventsHub.Persistence` | EF Core `AppDbContext`, migrations, seed data (SQLite) | [README](src/EventsHub.Persistence/README.md) |
-| `src/EventsHub.OpenApi` | Standalone host that generates the OpenAPI document and typed client | [README](src/EventsHub.OpenApi/README.md) |
-| `web/` | React 19 + Vite + MUI single-page app | [README](web/README.md) |
-| `tests/` | NUnit unit tests and a Bruno HTTP collection | see the Api README |
-| `docs/` | Architecture write-ups and course-material guides | [Architecture](docs/Architecture.md) |
+| Path                        | What it is                                                                | README                                        |
+| --------------------------- | ------------------------------------------------------------------------- | --------------------------------------------- |
+| `src/EventsHub.Api`         | ASP.NET Core Web API — the only backend piece in the runtime request path | [README](src/EventsHub.Api/README.md)         |
+| `src/EventsHub.Application` | MediatR commands/queries and handlers (the use cases)                     | [README](src/EventsHub.Application/README.md) |
+| `src/EventsHub.Domain`      | The `Event` entity                                                        | [README](src/EventsHub.Domain/README.md)      |
+| `src/EventsHub.Persistence` | EF Core `AppDbContext`, migrations, seed data (SQLite)                    | [README](src/EventsHub.Persistence/README.md) |
+| `src/EventsHub.OpenApi`     | Standalone host that generates the OpenAPI document and typed client      | [README](src/EventsHub.OpenApi/README.md)     |
+| `web/`                      | React 19 + Vite + MUI single-page app                                     | [README](web/README.md)                       |
+| `tests/`                    | NUnit unit tests and a Bruno HTTP collection                              | see the Api README                            |
+| `docs/`                     | Architecture write-ups and course-material guides                         | [Architecture](docs/Architecture.md)          |
 
 ## How the pieces connect
 

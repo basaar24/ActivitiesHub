@@ -12,12 +12,12 @@ All paths below are relative to the **repository root** (the folder containing
 
 Repo layout produced by this procedure:
 
-| Path | Purpose |
-|---|---|
-| `src/EventsHub.OpenApi/` | Standalone host that serves the live Swagger doc/UI |
-| `nswag/EventsHub.nswag` | Checked-in NSwag codegen config |
-| `openapi/EventsHub.v1.json` | Generated OpenAPI document (never hand-edited) |
-| `src/EventsHub.OpenApi/Generated/EventsHubRpcClient.generated.cs` | Generated C# client (never hand-edited) |
+| Path                                                              | Purpose                                             |
+| ----------------------------------------------------------------- | --------------------------------------------------- |
+| `src/EventsHub.OpenApi/`                                          | Standalone host that serves the live Swagger doc/UI |
+| `nswag/EventsHub.nswag`                                           | Checked-in NSwag codegen config                     |
+| `openapi/EventsHub.v1.json`                                       | Generated OpenAPI document (never hand-edited)      |
+| `src/EventsHub.OpenApi/Generated/EventsHubRpcClient.generated.cs` | Generated C# client (never hand-edited)             |
 
 ---
 
@@ -269,12 +269,12 @@ dotnet build EventsHub.slnx
 
 ## Summary of what gets created vs. hand-maintained
 
-| Path | Origin | Maintenance |
-|---|---|---|
-| `src/EventsHub.OpenApi/*.csproj`, `Program.cs`, `launchSettings.json` | Manual (Part 1) | Hand-edit when adding new controller dependencies to register |
-| `nswag/EventsHub.nswag` | Manual (Part 1) | Hand-edit only for codegen config changes (e.g. runtime bump) |
-| `openapi/EventsHub.v1.json` | Generated (Part 2, step 2) | **Never hand-edit** — overwritten by the pipeline |
-| `src/EventsHub.OpenApi/Generated/*.generated.cs` | Generated (Part 2, step 4) | **Never hand-edit** — overwritten by the pipeline |
+| Path                                                                  | Origin                     | Maintenance                                                   |
+| --------------------------------------------------------------------- | -------------------------- | ------------------------------------------------------------- |
+| `src/EventsHub.OpenApi/*.csproj`, `Program.cs`, `launchSettings.json` | Manual (Part 1)            | Hand-edit when adding new controller dependencies to register |
+| `nswag/EventsHub.nswag`                                               | Manual (Part 1)            | Hand-edit only for codegen config changes (e.g. runtime bump) |
+| `openapi/EventsHub.v1.json`                                           | Generated (Part 2, step 2) | **Never hand-edit** — overwritten by the pipeline             |
+| `src/EventsHub.OpenApi/Generated/*.generated.cs`                      | Generated (Part 2, step 4) | **Never hand-edit** — overwritten by the pipeline             |
 
 ---
 

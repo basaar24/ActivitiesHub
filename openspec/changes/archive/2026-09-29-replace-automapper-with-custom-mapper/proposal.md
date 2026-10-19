@@ -19,9 +19,11 @@ Non-goals: query projection (`ProjectTo`), automatic flattening/unflattening, au
 ## Capabilities
 
 ### New Capabilities
+
 - `object-mapping`: How application code maps one object onto another (existing or new instance) using registered profiles, including convention-based member matching, per-member overrides, and clear failures for unregistered maps.
 
 ### Modified Capabilities
+
 <!-- None: openspec/specs/ is empty, and no existing spec-level behavior changes. -->
 
 ## Impact

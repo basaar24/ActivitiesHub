@@ -8,15 +8,15 @@ package: `MediatR` 14.2.0. Object mapping is done by a small in-house mapper
 
 ## Contents
 
-| File | Request | Handler behavior |
-|---|---|---|
-| `Events/Queries/GetEventList.cs` | `Query` → `List<Event>` | Returns `context.Events.ToListAsync(...)`. Also runs a 10-iteration loop that logs progress and checks the cancellation token (a leftover cancellation-token demo). |
-| `Events/Queries/GetEventDetails.cs` | `Query { Id }` → `Event` | `FindAsync(Id)`; throws `Exception("Activity not found")` if missing. |
-| `Events/Commands/CreateEvent.cs` | `Command { Event }` → `string` | Adds the event, saves, returns its `Id`. No validation. |
-| `Events/Commands/EditEvent.cs` | `Command { Event }` | Finds the event by `Event.Id` (throws `Exception("Event not found")` if missing), copies fields onto it with `IMapper`, saves. |
-| `Events/Commands/DeleteEvent.cs` | `Command { Id }` | Finds the event (throws `Exception("Event not found")` if missing), removes it, saves. |
-| `Core/MappingProfiles.cs` | — | Mapping profile with one map, `Event` → `Event`, used by `EditEvent`. |
-| `Core/Mapping/` | — | The in-house mapper: `IMapper`, `Mapper`, `Profile`, and the `AddMapper` registration extension. |
+| File                                | Request                        | Handler behavior                                                                                                                                                    |
+| ----------------------------------- | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Events/Queries/GetEventList.cs`    | `Query` → `List<Event>`        | Returns `context.Events.ToListAsync(...)`. Also runs a 10-iteration loop that logs progress and checks the cancellation token (a leftover cancellation-token demo). |
+| `Events/Queries/GetEventDetails.cs` | `Query { Id }` → `Event`       | `FindAsync(Id)`; throws `Exception("Activity not found")` if missing.                                                                                               |
+| `Events/Commands/CreateEvent.cs`    | `Command { Event }` → `string` | Adds the event, saves, returns its `Id`. No validation.                                                                                                             |
+| `Events/Commands/EditEvent.cs`      | `Command { Event }`            | Finds the event by `Event.Id` (throws `Exception("Event not found")` if missing), copies fields onto it with `IMapper`, saves.                                      |
+| `Events/Commands/DeleteEvent.cs`    | `Command { Id }`               | Finds the event (throws `Exception("Event not found")` if missing), removes it, saves.                                                                              |
+| `Core/MappingProfiles.cs`           | —                              | Mapping profile with one map, `Event` → `Event`, used by `EditEvent`.                                                                                               |
+| `Core/Mapping/`                     | —                              | The in-house mapper: `IMapper`, `Mapper`, `Profile`, and the `AddMapper` registration extension.                                                                    |
 
 ## How it connects to the rest of the solution
 

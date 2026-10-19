@@ -79,12 +79,12 @@ A branch is a movable pointer to a commit. It lets you develop features, fixes, 
    ```
 4. Adopt a naming convention for your branches:
 
-   | Prefix | Use |
-   |---|---|
-   | `feature/` | New functionality |
-   | `fix/` | Bug fix |
-   | `hotfix/` | Urgent production fix |
-   | `chore/` | Maintenance tasks (configs, dependencies) |
+   | Prefix     | Use                                       |
+   | ---------- | ----------------------------------------- |
+   | `feature/` | New functionality                         |
+   | `fix/`     | Bug fix                                   |
+   | `hotfix/`  | Urgent production fix                     |
+   | `chore/`   | Maintenance tasks (configs, dependencies) |
 
 ---
 
@@ -166,7 +166,7 @@ A Pull Request (PR) isn't a Git concept itself, but one from platforms like GitH
 
 ## 5. Merge
 
-`merge` integrates the history of one branch into another, creating — in most cases — a *merge commit* with two parents. There are two main scenarios: **fast-forward** (the target branch has no new commits, so Git just moves the pointer) and **three-way merge** (both branches advanced separately and Git combines the changes; if the same files or lines changed in both, a conflict occurs that has to be resolved by hand).
+`merge` integrates the history of one branch into another, creating — in most cases — a _merge commit_ with two parents. There are two main scenarios: **fast-forward** (the target branch has no new commits, so Git just moves the pointer) and **three-way merge** (both branches advanced separately and Git combines the changes; if the same files or lines changed in both, a conflict occurs that has to be resolved by hand).
 
 1. Switch to the target branch:
    ```powershell

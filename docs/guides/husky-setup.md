@@ -6,12 +6,12 @@ Husky runs scripts automatically on Git hooks (pre-commit, commit-msg, pre-push,
 
 Pick **one** part below and follow it from top to bottom. Every part is self-contained: it has its own prerequisites, numbered steps, verification, team/CI setup, and troubleshooting, so you never need to jump to another part.
 
-| Your repo | Follow |
-|---|---|
+| Your repo                                                                                     | Follow     |
+| --------------------------------------------------------------------------------------------- | ---------- |
 | .NET backend **and** an npm frontend in the same repo (e.g. EventsHub with `src/` and `web/`) | **Part 1** |
-| Only .NET (a `.sln` / `.slnx`, no `package.json`) | **Part 2** |
-| Only npm, with `package.json` in the repo root | **Part 3** |
-| Only npm, with `package.json` in a subfolder (e.g. `frontend/`) | **Part 4** |
+| Only .NET (a `.sln` / `.slnx`, no `package.json`)                                             | **Part 2** |
+| Only npm, with `package.json` in the repo root                                                | **Part 3** |
+| Only npm, with `package.json` in a subfolder (e.g. `frontend/`)                               | **Part 4** |
 
 ## Where to run the commands (read this once)
 
@@ -158,17 +158,17 @@ Copy the next json to the bottom of the `web/package.json` file.
    ```
 2. Open `web/eslint.config.js`. Add this import at the top, with the other imports:
    ```js
-   import prettier from 'eslint-config-prettier/flat'
+   import prettier from "eslint-config-prettier/flat";
    ```
 3. Add `prettier` as the **last** entry of the exported config array, so it can switch off any earlier rule that conflicts with Prettier:
    ```js
    export default defineConfig([
-     globalIgnores(['dist']),
+     globalIgnores(["dist"]),
      {
        // ...your existing config object stays as it is
      },
      prettier, // keep this last
-   ])
+   ]);
    ```
    If your file exports a plain array instead of using `defineConfig`, add `prettier` at the end of that array in the same way.
 4. Check that ESLint still runs without errors:
@@ -314,17 +314,17 @@ Remove-Item Env:HUSKY                # turn it back on
 
 ## Troubleshooting (Part 1)
 
-| Problem | Fix |
-|---|---|
-| Hooks don't run | From the repo root run `dotnet husky install`, then check `git config core.hooksPath` (should be `.husky`) |
-| `core.hooksPath` ends in `/_` | npm Husky overwrote it. Remove `"prepare": "husky"` from `web/package.json` and re-run `dotnet husky install` |
-| `dotnet husky` not found | From the repo root run `dotnet tool restore` |
+| Problem                                                                  | Fix                                                                                                                                                     |
+| ------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Hooks don't run                                                          | From the repo root run `dotnet husky install`, then check `git config core.hooksPath` (should be `.husky`)                                              |
+| `core.hooksPath` ends in `/_`                                            | npm Husky overwrote it. Remove `"prepare": "husky"` from `web/package.json` and re-run `dotnet husky install`                                           |
+| `dotnet husky` not found                                                 | From the repo root run `dotnet tool restore`                                                                                                            |
 | The web task fails with `'prettier' is not recognized` (or another tool) | `lint-staged` runs the commands listed in `web/package.json`: remove the rule, or install the tool with `npm install --save-dev prettier` inside `web/` |
-| The web task fails with "command not found" | Run `npm install` inside `web/` so `lint-staged` is installed |
-| `dotnet format` task errors on file paths | Add `"pathMode": "relative"` (or `"absolute"`) to the task |
-| Hook fails with `\r` errors on Windows | Save the hook file with LF line endings, not CRLF |
-| Hook doesn't run from a GUI client (Visual Studio, VS Code, Git GUI) | Make sure `dotnet` and `node` are on the PATH available to that app, then restart it |
-| Hook fails on CI | Set `HUSKY=0` in the CI environment |
+| The web task fails with "command not found"                              | Run `npm install` inside `web/` so `lint-staged` is installed                                                                                           |
+| `dotnet format` task errors on file paths                                | Add `"pathMode": "relative"` (or `"absolute"`) to the task                                                                                              |
+| Hook fails with `\r` errors on Windows                                   | Save the hook file with LF line endings, not CRLF                                                                                                       |
+| Hook doesn't run from a GUI client (Visual Studio, VS Code, Git GUI)     | Make sure `dotnet` and `node` are on the PATH available to that app, then restart it                                                                    |
+| Hook fails on CI                                                         | Set `HUSKY=0` in the CI environment                                                                                                                     |
 
 ---
 
@@ -512,14 +512,14 @@ Remove-Item Env:HUSKY                # turn it back on
 
 ## Troubleshooting (Part 2)
 
-| Problem | Fix |
-|---|---|
-| Hooks don't run | From the repo root run `dotnet husky install`, then check `git config core.hooksPath` (should be `.husky`) |
-| `dotnet husky` not found | From the repo root run `dotnet tool restore` |
-| `dotnet format` task errors on file paths | Add `"pathMode": "relative"` (or `"absolute"`) to the task |
-| Hook fails with `\r` errors on Windows | Save the hook file with LF line endings, not CRLF |
-| Hook doesn't run from a GUI client (Visual Studio, VS Code, Git GUI) | Make sure `dotnet` is on the PATH available to that app, then restart it |
-| Hook fails on CI | Set `HUSKY=0` in the CI environment |
+| Problem                                                              | Fix                                                                                                        |
+| -------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| Hooks don't run                                                      | From the repo root run `dotnet husky install`, then check `git config core.hooksPath` (should be `.husky`) |
+| `dotnet husky` not found                                             | From the repo root run `dotnet tool restore`                                                               |
+| `dotnet format` task errors on file paths                            | Add `"pathMode": "relative"` (or `"absolute"`) to the task                                                 |
+| Hook fails with `\r` errors on Windows                               | Save the hook file with LF line endings, not CRLF                                                          |
+| Hook doesn't run from a GUI client (Visual Studio, VS Code, Git GUI) | Make sure `dotnet` is on the PATH available to that app, then restart it                                   |
+| Hook fails on CI                                                     | Set `HUSKY=0` in the CI environment                                                                        |
 
 ---
 
@@ -666,17 +666,17 @@ Running the whole test suite or linter on every commit is slow. `lint-staged` ru
    ```
 2. Open `eslint.config.js`. Add this import at the top, with the other imports:
    ```js
-   import prettier from 'eslint-config-prettier/flat'
+   import prettier from "eslint-config-prettier/flat";
    ```
 3. Add `prettier` as the **last** entry of the exported config array, so it can switch off any earlier rule that conflicts with Prettier:
    ```js
    export default defineConfig([
-     globalIgnores(['dist']),
+     globalIgnores(["dist"]),
      {
        // ...your existing config object stays as it is
      },
      prettier, // keep this last
-   ])
+   ]);
    ```
    If your file exports a plain array instead of using `defineConfig`, add `prettier` at the end of that array in the same way.
 4. Check that ESLint still runs without errors:
@@ -767,17 +767,17 @@ Remove-Item Env:HUSKY                # turn it back on
 
 ## Troubleshooting (Part 3)
 
-| Problem | Fix |
-|---|---|
-| Hooks don't run | From the repo root run `npm run prepare`, then check `git config core.hooksPath` (should be `.husky/_`) |
-| `husky: command not found` | Run `npm install` so `node_modules/.bin` is populated |
-| The hook fails with `'prettier' is not recognized` (or another tool) | `lint-staged` runs the commands listed in `package.json`: remove that rule, or install the tool with `npm install --save-dev prettier` |
+| Problem                                                                                          | Fix                                                                                                                                                        |
+| ------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Hooks don't run                                                                                  | From the repo root run `npm run prepare`, then check `git config core.hooksPath` (should be `.husky/_`)                                                    |
+| `husky: command not found`                                                                       | Run `npm install` so `node_modules/.bin` is populated                                                                                                      |
+| The hook fails with `'prettier' is not recognized` (or another tool)                             | `lint-staged` runs the commands listed in `package.json`: remove that rule, or install the tool with `npm install --save-dev prettier`                     |
 | Every git command fails with `sh: 0: Illegal option --`, or `core.hooksPath` has a strange value | You passed a flag such as `--version` to `npx husky`, and Husky used it as the hooks folder. Delete the stray folder and run `npm run prepare` to reset it |
-| The first commit after `npx husky init` is blocked by `npm test` | The placeholder `test` script fails by design: add a real test script or change `.husky/pre-commit` |
-| Hook fails with `\r` errors on Windows | Save the hook file with LF line endings, not CRLF |
-| Hook doesn't run from a GUI client | Make sure `node` is on the PATH available to that app, then restart it |
-| `.husky` ignored by Git | Check that `.gitignore` doesn't exclude `.husky/` |
-| Hook fails on CI | Set `HUSKY=0` in the CI environment |
+| The first commit after `npx husky init` is blocked by `npm test`                                 | The placeholder `test` script fails by design: add a real test script or change `.husky/pre-commit`                                                        |
+| Hook fails with `\r` errors on Windows                                                           | Save the hook file with LF line endings, not CRLF                                                                                                          |
+| Hook doesn't run from a GUI client                                                               | Make sure `node` is on the PATH available to that app, then restart it                                                                                     |
+| `.husky` ignored by Git                                                                          | Check that `.gitignore` doesn't exclude `.husky/`                                                                                                          |
+| Hook fails on CI                                                                                 | Set `HUSKY=0` in the CI environment                                                                                                                        |
 
 ---
 
@@ -922,17 +922,17 @@ npm test
    ```
 2. Open `frontend/eslint.config.js`. Add this import at the top, with the other imports:
    ```js
-   import prettier from 'eslint-config-prettier/flat'
+   import prettier from "eslint-config-prettier/flat";
    ```
 3. Add `prettier` as the **last** entry of the exported config array, so it can switch off any earlier rule that conflicts with Prettier:
    ```js
    export default defineConfig([
-     globalIgnores(['dist']),
+     globalIgnores(["dist"]),
      {
        // ...your existing config object stays as it is
      },
      prettier, // keep this last
-   ])
+   ]);
    ```
    If your file exports a plain array instead of using `defineConfig`, add `prettier` at the end of that array in the same way.
 4. Check that ESLint still runs without errors:
@@ -1015,13 +1015,13 @@ Remove-Item Env:HUSKY                # turn it back on
 
 ## Troubleshooting (Part 4)
 
-| Problem | Fix |
-|---|---|
-| Hooks don't run | From `frontend/` run `npm run prepare`, then check `git config core.hooksPath` from the repo root (should be `frontend/.husky/_`) |
-| The hook says a command or file isn't found | Git runs hooks from the repo root: make sure the hook starts with `cd frontend` |
-| `husky: command not found` | Run `npm install` inside `frontend/` |
-| The hook fails with `'prettier' is not recognized` (or another tool) | `lint-staged` runs the commands listed in `frontend/package.json`: remove that rule, or install the tool with `npm install --save-dev prettier` inside `frontend/` |
-| Every git command fails with `sh: 0: Illegal option --`, or `core.hooksPath` has a strange value | You passed a flag such as `--version` to `husky`, and it was used as the hooks folder. Delete the stray folder and run `npm run prepare` again |
-| Hook fails with `\r` errors on Windows | Save the hook file with LF line endings, not CRLF |
-| Hook doesn't run from a GUI client | Make sure `node` is on the PATH available to that app, then restart it |
-| Hook fails on CI | Set `HUSKY=0` in the CI environment |
+| Problem                                                                                          | Fix                                                                                                                                                                |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Hooks don't run                                                                                  | From `frontend/` run `npm run prepare`, then check `git config core.hooksPath` from the repo root (should be `frontend/.husky/_`)                                  |
+| The hook says a command or file isn't found                                                      | Git runs hooks from the repo root: make sure the hook starts with `cd frontend`                                                                                    |
+| `husky: command not found`                                                                       | Run `npm install` inside `frontend/`                                                                                                                               |
+| The hook fails with `'prettier' is not recognized` (or another tool)                             | `lint-staged` runs the commands listed in `frontend/package.json`: remove that rule, or install the tool with `npm install --save-dev prettier` inside `frontend/` |
+| Every git command fails with `sh: 0: Illegal option --`, or `core.hooksPath` has a strange value | You passed a flag such as `--version` to `husky`, and it was used as the hooks folder. Delete the stray folder and run `npm run prepare` again                     |
+| Hook fails with `\r` errors on Windows                                                           | Save the hook file with LF line endings, not CRLF                                                                                                                  |
+| Hook doesn't run from a GUI client                                                               | Make sure `node` is on the PATH available to that app, then restart it                                                                                             |
+| Hook fails on CI                                                                                 | Set `HUSKY=0` in the CI environment                                                                                                                                |

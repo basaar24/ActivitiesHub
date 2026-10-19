@@ -11,37 +11,20 @@ Each section carries a depth label, shown in the heading and repeated at the top
 ## Table of Contents
 
 **Part 1: Foundations**
+
 1. What is CQRS?
 2. CQS vs. CQRS
 3. The problem CQRS solves
 4. Commands, Queries, and Events
 5. When to use it and when not to
 
-**Part 2: Core Building Blocks**
-6. The write side
-7. The read side
-8. Handlers and dispatching
-9. Validation and error handling
+**Part 2: Core Building Blocks** 6. The write side 7. The read side 8. Handlers and dispatching 9. Validation and error handling
 
-**Part 3: Architecture Variants**
-10. Single database, separated models
-11. Separate read and write stores
-12. Eventual consistency
-13. Domain events and integration events
+**Part 3: Architecture Variants** 10. Single database, separated models 11. Separate read and write stores 12. Eventual consistency 13. Domain events and integration events
 
-**Part 4: Related Patterns**
-14. Event Sourcing
-15. Projections and read model rebuilding
-16. Outbox pattern and reliable messaging
-17. Sagas and process managers
-18. Idempotency and concurrency
+**Part 4: Related Patterns** 14. Event Sourcing 15. Projections and read model rebuilding 16. Outbox pattern and reliable messaging 17. Sagas and process managers 18. Idempotency and concurrency
 
-**Part 5: Practice**
-19. Implementing the dispatching pipeline
-20. Testing CQRS systems
-21. CQRS in Web APIs
-22. Common pitfalls and anti-patterns
-23. Evolving toward CQRS
+**Part 5: Practice** 19. Implementing the dispatching pipeline 20. Testing CQRS systems 21. CQRS in Web APIs 22. Common pitfalls and anti-patterns 23. Evolving toward CQRS
 
 ---
 
@@ -87,12 +70,12 @@ A method that both changes state and returns a computed answer is considered a d
 
 **CQRS** takes the same idea and lifts it to the architectural level. Instead of separating methods on one object, it separates whole models, and often whole execution paths, into a command side and a query side.
 
-| Aspect | CQS | CQRS |
-|---|---|---|
-| Scope | Single method or object | Application or bounded context |
-| Applies to | Method signatures | Models, handlers, and possibly storage |
-| Effort to adopt | Discipline only | Structural change |
-| Guarantees | Queries have no side effects | Reads and writes evolve independently |
+| Aspect          | CQS                          | CQRS                                   |
+| --------------- | ---------------------------- | -------------------------------------- |
+| Scope           | Single method or object      | Application or bounded context         |
+| Applies to      | Method signatures            | Models, handlers, and possibly storage |
+| Effort to adopt | Discipline only              | Structural change                      |
+| Guarantees      | Queries have no side effects | Reads and writes evolve independently  |
 
 You can follow CQS without doing CQRS. You cannot do CQRS meaningfully without respecting CQS, since a query that changes state would undermine the whole separation.
 
@@ -149,13 +132,13 @@ An event is a fact that already happened, named in the past tense: `OrderPlaced`
 - It can have zero, one, or many subscribers.
 - It is immutable.
 
-| | Command | Query | Event |
-|---|---|---|---|
-| Meaning | "Do this" | "Tell me this" | "This happened" |
-| Tense | Imperative | Interrogative | Past |
-| Can fail? | Yes | Yes (technical only) | No |
-| Handlers | Exactly one | Exactly one | Zero or more |
-| Changes state? | Yes | No | Records a change |
+|                | Command     | Query                | Event            |
+| -------------- | ----------- | -------------------- | ---------------- |
+| Meaning        | "Do this"   | "Tell me this"       | "This happened"  |
+| Tense          | Imperative  | Interrogative        | Past             |
+| Can fail?      | Yes         | Yes (technical only) | No               |
+| Handlers       | Exactly one | Exactly one          | Zero or more     |
+| Changes state? | Yes         | No                   | Records a change |
 
 ## 5. When to use it and when not to — Intermediate
 
@@ -298,14 +281,14 @@ sender  -->  dispatcher  -->  [ behavior 1 ] -> [ behavior 2 ] -> handler
 
 A **pipeline** wraps every handler in reusable steps. Common behaviors:
 
-| Behavior | Purpose |
-|---|---|
-| Logging | Record what was requested and how long it took |
-| Validation | Reject malformed commands before they reach the handler |
-| Authorization | Verify that the caller may perform the action |
-| Transaction | Begin, commit, or roll back around the handler |
-| Caching (queries) | Return stored results for repeated queries |
-| Retry | Repeat on transient failures |
+| Behavior          | Purpose                                                 |
+| ----------------- | ------------------------------------------------------- |
+| Logging           | Record what was requested and how long it took          |
+| Validation        | Reject malformed commands before they reach the handler |
+| Authorization     | Verify that the caller may perform the action           |
+| Transaction       | Begin, commit, or roll back around the handler          |
+| Caching (queries) | Return stored results for repeated queries              |
+| Retry             | Repeat on transient failures                            |
 
 This keeps handlers focused on one job and avoids repeating infrastructure code in every one of them.
 
@@ -323,11 +306,11 @@ Failures come in different kinds, and they deserve different treatment.
 
 ### Where validation belongs
 
-| Layer | What it checks | Example |
-|---|---|---|
-| Input / boundary | Shape and format | Email has valid format; quantity is a number |
-| Command validation | Rules that need only the command | Quantity greater than zero |
-| Domain model | Business invariants that need state | Cannot ship a cancelled order |
+| Layer              | What it checks                      | Example                                      |
+| ------------------ | ----------------------------------- | -------------------------------------------- |
+| Input / boundary   | Shape and format                    | Email has valid format; quantity is a number |
+| Command validation | Rules that need only the command    | Quantity greater than zero                   |
+| Domain model       | Business invariants that need state | Cannot ship a cancelled order                |
 
 Validate cheap things early and enforce business invariants inside the domain model, since that is the only place that always has the current state. Never rely on client-side or boundary checks alone for rules that protect data integrity.
 
@@ -421,12 +404,12 @@ The fuller form of CQRS gives each side **its own datastore**, chosen for its wo
 
 ### Synchronization strategies
 
-| Strategy | How it works | Trade-off |
-|---|---|---|
-| Event-driven | Write side publishes events; projectors update read store | Flexible, decoupled; needs reliable messaging |
-| Change data capture | A tool streams committed database changes | Little application code; couples to the write schema |
-| Scheduled refresh | Read store rebuilt periodically | Simple; data can be noticeably stale |
-| Synchronous dual write | Update both stores in one request | Simple to see, fragile: partial failure causes divergence |
+| Strategy               | How it works                                              | Trade-off                                                 |
+| ---------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
+| Event-driven           | Write side publishes events; projectors update read store | Flexible, decoupled; needs reliable messaging             |
+| Change data capture    | A tool streams committed database changes                 | Little application code; couples to the write schema      |
+| Scheduled refresh      | Read store rebuilt periodically                           | Simple; data can be noticeably stale                      |
+| Synchronous dual write | Update both stores in one request                         | Simple to see, fragile: partial failure causes divergence |
 
 Synchronous dual write is generally discouraged, because two independent stores cannot be updated atomically without heavy coordination. Prefer a design where one store is the source of truth and the other is derived from it.
 
@@ -600,7 +583,7 @@ This is one of CQRS's strongest operational advantages: the read side can be rep
 
 > **Depth: Advanced**
 
-A common failure in event-driven systems is the **dual-write problem**: the application must save state to the database *and* publish an event to a broker, but these are two separate systems that cannot share a transaction.
+A common failure in event-driven systems is the **dual-write problem**: the application must save state to the database _and_ publish an event to a broker, but these are two separate systems that cannot share a transaction.
 
 ```
 save order         --> succeeds
@@ -615,7 +598,7 @@ Result: event announces something that never happened.
 
 ### The outbox solution
 
-Write the event into an **outbox table** in the *same database transaction* as the state change. A separate process then reads the outbox and publishes to the broker.
+Write the event into an **outbox table** in the _same database transaction_ as the state change. A separate process then reads the outbox and publishes to the broker.
 
 ```
 +------------- one transaction -------------+
@@ -655,10 +638,10 @@ A **saga** (or **process manager**) coordinates such a workflow through a sequen
 
 ### Two coordination styles
 
-| Style | How it works | Trade-off |
-|---|---|---|
-| **Choreography** | Each service reacts to events from others; no central coordinator | Loosely coupled; the overall flow is hard to see |
-| **Orchestration** | A central saga sends commands and reacts to results | Flow is explicit and easy to follow; the coordinator is a dependency |
+| Style             | How it works                                                      | Trade-off                                                            |
+| ----------------- | ----------------------------------------------------------------- | -------------------------------------------------------------------- |
+| **Choreography**  | Each service reacts to events from others; no central coordinator | Loosely coupled; the overall flow is hard to see                     |
+| **Orchestration** | A central saga sends commands and reacts to results               | Flow is explicit and easy to follow; the coordinator is a dependency |
 
 ### Example (orchestrated)
 
@@ -809,14 +792,14 @@ The separation of responsibilities makes CQRS code unusually testable, because e
 
 ### What to test at each level
 
-| Level | Target | Style |
-|---|---|---|
-| Domain | Aggregates and their business rules | Pure unit tests, no infrastructure |
-| Command handlers | Orchestration around the domain | Unit tests with fakes for storage |
-| Query handlers | Correct data returned for a read model | Tests against a real or realistic store |
-| Projectors | Events produce the expected read model | Given events, expect state |
-| Pipeline behaviors | Validation, authorization, and so on | Isolated unit tests |
-| End to end | A full flow through the system | A few, targeted integration tests |
+| Level              | Target                                 | Style                                   |
+| ------------------ | -------------------------------------- | --------------------------------------- |
+| Domain             | Aggregates and their business rules    | Pure unit tests, no infrastructure      |
+| Command handlers   | Orchestration around the domain        | Unit tests with fakes for storage       |
+| Query handlers     | Correct data returned for a read model | Tests against a real or realistic store |
+| Projectors         | Events produce the expected read model | Given events, expect state              |
+| Pipeline behaviors | Validation, authorization, and so on   | Isolated unit tests                     |
+| End to end         | A full flow through the system         | A few, targeted integration tests       |
 
 ### Given / When / Then for aggregates
 
@@ -861,12 +844,12 @@ HTTP maps naturally onto CQRS, but the mapping needs some care.
 
 ### Verbs and messages
 
-| HTTP method | Typical role | Notes |
-|---|---|---|
-| GET | Query | Safe and cacheable; never changes state |
-| POST | Command | Create or trigger an action |
-| PUT / PATCH | Command | Replace or partially change a resource |
-| DELETE | Command | Remove a resource |
+| HTTP method | Typical role | Notes                                   |
+| ----------- | ------------ | --------------------------------------- |
+| GET         | Query        | Safe and cacheable; never changes state |
+| POST        | Command      | Create or trigger an action             |
+| PUT / PATCH | Command      | Replace or partially change a resource  |
+| DELETE      | Command      | Remove a resource                       |
 
 A controller or endpoint should do little more than translate an HTTP request into a command or query, dispatch it, and translate the outcome back into an HTTP response.
 
@@ -886,14 +869,14 @@ Both are valid. Action-oriented routes fit CQRS particularly well because each r
 
 ### Status codes
 
-| Outcome | Status |
-|---|---|
-| Command completed | 200 OK, 201 Created, or 204 No Content |
-| Command accepted for asynchronous processing | 202 Accepted |
-| Validation failure | 400 Bad Request or 422 Unprocessable Content |
-| Business rule violation or state conflict | 409 Conflict |
-| Concurrency conflict | 409 Conflict or 412 Precondition Failed |
-| Resource not found (query) | 404 Not Found |
+| Outcome                                      | Status                                       |
+| -------------------------------------------- | -------------------------------------------- |
+| Command completed                            | 200 OK, 201 Created, or 204 No Content       |
+| Command accepted for asynchronous processing | 202 Accepted                                 |
+| Validation failure                           | 400 Bad Request or 422 Unprocessable Content |
+| Business rule violation or state conflict    | 409 Conflict                                 |
+| Concurrency conflict                         | 409 Conflict or 412 Precondition Failed      |
+| Resource not found (query)                   | 404 Not Found                                |
 
 ### Asynchronous commands
 
@@ -987,20 +970,20 @@ Stopping early is a legitimate outcome. Many systems settle happily at Stage 2 o
 
 ## Appendix: Glossary
 
-| Term | Meaning |
-|---|---|
-| **Aggregate** | A cluster of domain objects treated as a single consistency boundary, with one root |
-| **Bounded context** | A boundary within which a particular model and vocabulary apply |
-| **Command** | A request to change state, expressing intent |
-| **Query** | A request for data that causes no side effects |
-| **Domain event** | A fact that happened inside a bounded context |
-| **Integration event** | A stable, published event meant for other systems |
-| **Read model / projection** | A structure shaped for reading, derived from write-side changes |
-| **Projector** | A process that keeps a read model up to date |
-| **Eventual consistency** | A state in which views converge after some delay |
-| **Idempotency** | The property that repeating an operation gives the same result as doing it once |
-| **Outbox** | A table that records events atomically with state changes for later publishing |
-| **Saga** | A coordinated, compensable workflow across several aggregates or services |
-| **Event Sourcing** | Storing state as a sequence of events instead of current values |
-| **Snapshot** | A saved aggregate state used to shorten event replay |
-| **Optimistic concurrency** | Detecting conflicting changes with a version check at save time |
+| Term                        | Meaning                                                                             |
+| --------------------------- | ----------------------------------------------------------------------------------- |
+| **Aggregate**               | A cluster of domain objects treated as a single consistency boundary, with one root |
+| **Bounded context**         | A boundary within which a particular model and vocabulary apply                     |
+| **Command**                 | A request to change state, expressing intent                                        |
+| **Query**                   | A request for data that causes no side effects                                      |
+| **Domain event**            | A fact that happened inside a bounded context                                       |
+| **Integration event**       | A stable, published event meant for other systems                                   |
+| **Read model / projection** | A structure shaped for reading, derived from write-side changes                     |
+| **Projector**               | A process that keeps a read model up to date                                        |
+| **Eventual consistency**    | A state in which views converge after some delay                                    |
+| **Idempotency**             | The property that repeating an operation gives the same result as doing it once     |
+| **Outbox**                  | A table that records events atomically with state changes for later publishing      |
+| **Saga**                    | A coordinated, compensable workflow across several aggregates or services           |
+| **Event Sourcing**          | Storing state as a sequence of events instead of current values                     |
+| **Snapshot**                | A saved aggregate state used to shorten event replay                                |
+| **Optimistic concurrency**  | Detecting conflicting changes with a version check at save time                     |

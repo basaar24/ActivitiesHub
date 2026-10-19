@@ -46,7 +46,7 @@ This is the core economic argument for testing: **shifting defect discovery left
 > **Depth: General**
 
 - **Preventing regressions.** A regression is when previously working functionality breaks due to a new change. A good test suite catches these automatically, before they reach users.
-- **Enabling safe refactoring.** Tests let you change *how* code works internally without fear, as long as the tests (which check *what* the code does) still pass.
+- **Enabling safe refactoring.** Tests let you change _how_ code works internally without fear, as long as the tests (which check _what_ the code does) still pass.
 - **Documentation-as-code.** A well-named, well-structured test describes the expected behavior of the system. Unlike prose documentation, it can't silently go out of date — if the behavior changes and the test isn't updated, the test fails.
 - **Confidence for continuous delivery.** Automated tests are what make it possible to deploy frequently and safely. Without them, every release requires slow, manual verification.
 - **Business impact.** Defects that reach production can cause downtime, data loss, security incidents, or loss of user trust — costs that often far exceed the cost of writing tests in the first place.
@@ -57,12 +57,12 @@ This is the core economic argument for testing: **shifting defect discovery left
 
 > **Depth: Intermediate**
 
-| Term | Definition |
-|---|---|
-| **Test case** | A single scenario that verifies a specific behavior, with defined inputs and expected outputs. |
-| **Test suite** | A collection of related test cases, often grouped by feature, class, or module. |
-| **Test fixture** | The fixed baseline state or environment a test needs before it runs (e.g., a database with seed data, an initialized object). |
-| **Assertion** | A statement that checks whether an actual result matches an expected result (e.g., `assertEqual(actual, expected)`). A failing assertion fails the test. |
+| Term             | Definition                                                                                                                                               |
+| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Test case**    | A single scenario that verifies a specific behavior, with defined inputs and expected outputs.                                                           |
+| **Test suite**   | A collection of related test cases, often grouped by feature, class, or module.                                                                          |
+| **Test fixture** | The fixed baseline state or environment a test needs before it runs (e.g., a database with seed data, an initialized object).                            |
+| **Assertion**    | A statement that checks whether an actual result matches an expected result (e.g., `assertEqual(actual, expected)`). A failing assertion fails the test. |
 
 ### Test Doubles
 
@@ -74,7 +74,7 @@ When a unit under test depends on something external (a database, an API, anothe
 - **Mock** — a stub with expectations attached; it verifies that specific interactions happened (e.g., "was `Save()` called exactly once?").
 - **Spy** — wraps a real object and records how it was called, while still allowing the real behavior to execute.
 
-Using the right double matters: overusing mocks in particular can lead to tests that check *how* code is implemented rather than *what* it does, making tests brittle (see Section 10).
+Using the right double matters: overusing mocks in particular can lead to tests that check _how_ code is implemented rather than _what_ it does, making tests brittle (see Section 10).
 
 ### Code Coverage
 
@@ -92,7 +92,7 @@ Code coverage measures what percentage of your code is executed by your test sui
 
 ### Test-Driven Development (TDD)
 
-A development practice where tests are written *before* the implementation, following a short cycle:
+A development practice where tests are written _before_ the implementation, following a short cycle:
 
 1. **Red** — write a failing test for behavior that doesn't exist yet.
 2. **Green** — write the minimum code needed to make the test pass.
@@ -146,11 +146,11 @@ The testing pyramid is a model (popularized by Mike Cohn) for how a healthy test
 
 ### Trade-offs at Each Level
 
-| Layer | Speed | Cost to write/maintain | Confidence per test | Typical count |
-|---|---|---|---|---|
-| Unit | Very fast | Low | Low (narrow scope) | Many |
-| Integration | Moderate | Moderate | Moderate | Some |
-| E2E | Slow | High | High (broad scope) | Few |
+| Layer       | Speed     | Cost to write/maintain | Confidence per test | Typical count |
+| ----------- | --------- | ---------------------- | ------------------- | ------------- |
+| Unit        | Very fast | Low                    | Low (narrow scope)  | Many          |
+| Integration | Moderate  | Moderate               | Moderate            | Some          |
+| E2E         | Slow      | High                   | High (broad scope)  | Few           |
 
 The pyramid shape reflects a deliberate trade-off: you want the bulk of your confidence to come from tests that are cheap to run and maintain, and reserve the expensive, slow tests for the critical paths that truly need end-to-end verification.
 
@@ -180,9 +180,9 @@ An inverted pyramid — many E2E tests, few unit tests — is a common anti-patt
 - **Regression testing** — does previously working functionality still work after a change? Usually the bulk of an automated suite run on every change.
 - **Smoke testing / sanity testing** — a quick, shallow pass to confirm the build isn't fundamentally broken before deeper testing (e.g., "does the app even start and respond?").
 - **Performance testing** — how does the system behave under load or over time?
-  - *Load testing* — behavior under expected/peak traffic.
-  - *Stress testing* — behavior beyond normal capacity, to find the breaking point.
-  - *Soak testing* — behavior over an extended period, to catch issues like memory leaks.
+  - _Load testing_ — behavior under expected/peak traffic.
+  - _Stress testing_ — behavior beyond normal capacity, to find the breaking point.
+  - _Soak testing_ — behavior over an extended period, to catch issues like memory leaks.
 - **Security testing** — identifies vulnerabilities (e.g., injection attacks, authentication flaws, data exposure). Often a specialized discipline (penetration testing, static/dynamic security analysis) beyond general dev testing.
 - **Usability testing** — is the software easy and intuitive to use for real users? Often involves observing actual users.
 - **Accessibility testing** — can the software be used by people with disabilities (screen readers, keyboard navigation, color contrast, etc.)?
@@ -209,8 +209,8 @@ An inverted pyramid — many E2E tests, few unit tests — is a common anti-patt
 
 ### Static vs. Dynamic Testing
 
-- **Static testing** — examines code or artifacts *without executing* them: code review, linting, static analysis tools, and pair programming reviews. Catches issues early and cheaply.
-- **Dynamic testing** — involves actually *running* the code (all the testing types discussed above fall under this).
+- **Static testing** — examines code or artifacts _without executing_ them: code review, linting, static analysis tools, and pair programming reviews. Catches issues early and cheaply.
+- **Dynamic testing** — involves actually _running_ the code (all the testing types discussed above fall under this).
 
 ---
 
@@ -264,7 +264,7 @@ A good test should be:
 
 ### Naming Conventions
 
-Test names should describe *what* is being tested and *under what conditions*, so a failing test tells you what broke without opening the file. A common pattern:
+Test names should describe _what_ is being tested and _under what conditions_, so a failing test tells you what broke without opening the file. A common pattern:
 
 ```
 MethodUnderTest_Scenario_ExpectedResult
@@ -297,17 +297,17 @@ e.g., `CalculateTotal_WhenCartIsEmpty_ReturnsZero`
 
 > **Depth: General**
 
-| Testing Type | Scope | Speed | Cost | When to Use |
-|---|---|---|---|---|
-| Unit | Single function/class, isolated | Very fast | Low | Every piece of logic with meaningful behavior; run on every save/commit |
-| Integration | Multiple components together | Moderate | Moderate | Verifying components interact correctly (DB, internal services) |
-| System | Whole integrated system | Slow | High | Verifying the system meets requirements end-to-end internally |
-| E2E | Full stack via real interface | Slow | High | Critical user journeys; smoke-testing releases |
-| Acceptance (UAT) | Business requirements | Slow (often manual) | High | Confirming release-readiness against stakeholder needs |
-| Regression | Any/all of the above, rerun | Varies | Varies | Every change, to catch reintroduced bugs |
-| Smoke | Shallow pass across system | Fast | Low | Quick check after a new build/deploy |
-| Performance | System under load | Slow | High | Before major releases, capacity planning |
-| Security | Vulnerabilities | Varies | High (specialized) | Regularly, and before handling sensitive data/releases |
+| Testing Type     | Scope                           | Speed               | Cost               | When to Use                                                             |
+| ---------------- | ------------------------------- | ------------------- | ------------------ | ----------------------------------------------------------------------- |
+| Unit             | Single function/class, isolated | Very fast           | Low                | Every piece of logic with meaningful behavior; run on every save/commit |
+| Integration      | Multiple components together    | Moderate            | Moderate           | Verifying components interact correctly (DB, internal services)         |
+| System           | Whole integrated system         | Slow                | High               | Verifying the system meets requirements end-to-end internally           |
+| E2E              | Full stack via real interface   | Slow                | High               | Critical user journeys; smoke-testing releases                          |
+| Acceptance (UAT) | Business requirements           | Slow (often manual) | High               | Confirming release-readiness against stakeholder needs                  |
+| Regression       | Any/all of the above, rerun     | Varies              | Varies             | Every change, to catch reintroduced bugs                                |
+| Smoke            | Shallow pass across system      | Fast                | Low                | Quick check after a new build/deploy                                    |
+| Performance      | System under load               | Slow                | High               | Before major releases, capacity planning                                |
+| Security         | Vulnerabilities                 | Varies              | High (specialized) | Regularly, and before handling sensitive data/releases                  |
 
 ---
 

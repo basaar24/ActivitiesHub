@@ -5,22 +5,14 @@
       "name": "Format staged C# files",
       "group": "pre-commit",
       "command": "dotnet",
-      "args": [
-        "format",
-        "--include",
-        "${staged}"
-      ],
-      "include": [
-        "**/*.cs"
-      ]
+      "args": ["format", "--include", "${staged}"],
+      "include": ["**/*.cs"]
     },
     {
       "name": "Lint web",
       "group": "pre-commit",
       "command": "npx",
-      "args": [
-        "lint-staged"
-      ],
+      "args": ["lint-staged"],
       "cwd": "web"
     }
   ]

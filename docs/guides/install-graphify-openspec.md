@@ -95,16 +95,16 @@ This produces `graphify-out/` containing `graph.html` (interactive viewer),
 (queryable structure), plus cache and bookkeeping files. **Don't commit the
 whole folder** — commit only what other people actually need.
 
-| Path in `graphify-out/` | Commit? | Why |
-|---|---|---|
-| `graph.json` (~1 MB) | Yes | What `graphify query` / `path` / `explain` read |
-| `GRAPH_REPORT.md` | Yes | Readable summary of the graph |
-| `.graphify_labels.json` (+ `.sig`) | Yes | Curated community names; keeps labels stable between runs |
-| `graph.html` (~850 KB) | No | Regenerated with `graphify export html` |
-| `cache/` (100+ small files) | No | Pure cache |
-| Dated backup folders (e.g. `2026-09-29/`) | No | Copies of the graph made by `graphify update` |
-| `.graphify_python`, `.graphify_root` | No | Contain machine-specific absolute paths (your Python location) — wrong on every other machine |
-| `cost.json`, `manifest.json` | No | Local bookkeeping; the manifest's stored file timestamps change on every run |
+| Path in `graphify-out/`                   | Commit? | Why                                                                                           |
+| ----------------------------------------- | ------- | --------------------------------------------------------------------------------------------- |
+| `graph.json` (~1 MB)                      | Yes     | What `graphify query` / `path` / `explain` read                                               |
+| `GRAPH_REPORT.md`                         | Yes     | Readable summary of the graph                                                                 |
+| `.graphify_labels.json` (+ `.sig`)        | Yes     | Curated community names; keeps labels stable between runs                                     |
+| `graph.html` (~850 KB)                    | No      | Regenerated with `graphify export html`                                                       |
+| `cache/` (100+ small files)               | No      | Pure cache                                                                                    |
+| Dated backup folders (e.g. `2026-09-29/`) | No      | Copies of the graph made by `graphify update`                                                 |
+| `.graphify_python`, `.graphify_root`      | No      | Contain machine-specific absolute paths (your Python location) — wrong on every other machine |
+| `cost.json`, `manifest.json`              | No      | Local bookkeeping; the manifest's stored file timestamps change on every run                  |
 
 Add this to `.gitignore`:
 
@@ -200,6 +200,7 @@ openspec init --tools claude
 ```
 
 This creates:
+
 - `openspec/specs/` — the current, agreed specs
 - `openspec/changes/archive/` — completed change proposals, archived
 - `.claude/skills/openspec-*/SKILL.md` — one skill file per OpenSpec
@@ -228,6 +229,7 @@ Claude Code session.
 ## Step 3 — Report back
 
 Once both are installed, summarize:
+
 - Graphify and OpenSpec CLI versions (`graphify --version`, `openspec --version`)
 - Whether `graphify-out/graph.html` renders a real graph of this repo
 - Whether `graphify hook status` shows the post-commit/post-checkout hooks installed
@@ -242,7 +244,7 @@ Once both are installed, summarize:
 - Both tools are installed **globally** on the machine running them — every
   contributor who wants to use `/graphify` or the OpenSpec workflow needs to
   run Step 1/Step 2's install commands themselves once. Only the
-  *initialized, repo-scoped* output (`graphify-out/graph.json`,
+  _initialized, repo-scoped_ output (`graphify-out/graph.json`,
   `graphify-out/GRAPH_REPORT.md` and the labels file, `.graphifyignore`,
   `openspec/`, `.claude/skills/...`) is meant to be committed — not the rest
   of `graphify-out/` (see the table in Step 1).
@@ -258,7 +260,7 @@ Once both are installed, summarize:
   OpenSpec version bump; re-run it after upgrading the CLI.
 
 [Environment]::SetEnvironmentVariable(
-  "Path",
-  $env:Path + ";C:\Users\<username>\AppData\Roaming\Python\Python3xx\Scripts",
-  "User"
+"Path",
+$env:Path + ";C:\Users\<username>\AppData\Roaming\Python\Python3xx\Scripts",
+"User"
 )
