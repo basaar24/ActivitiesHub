@@ -2,11 +2,9 @@
   "version": 1,
   "isRoot": true,
   "tools": {
-    "nswag.consolecore": {
-      "version": "14.7.1",
-      "commands": [
-        "nswag"
-      ],
+    "husky": {
+      "version": "0.9.1",
+      "commands": ["husky"],
       "rollForward": false
     }
   }
