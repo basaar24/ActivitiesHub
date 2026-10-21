@@ -1,1 +1,6 @@
 graphify-out/graph.json merge=graphify
+
+# This makes git keep LF line endings for everything under web/, which is what Prettier writes.
+# The versions already committed used LF too, so no file contents changed and the history stays the same.
+# It only stops git from flagging line-ending differences after Prettier reformats files.
+web/** text=auto eol=lf
