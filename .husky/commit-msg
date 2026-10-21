@@ -19,7 +19,6 @@
 ## or put your custom commands -------------------
 #echo 'Husky.Net is awesome!'
 
-dotnet husky run
 
 msg=$(cat "$1")
 pattern='^(feat|fix|chore|docs|refactor|test|hotfix)(\(.+\))?: .{1,}'
