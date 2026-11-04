@@ -16,12 +16,13 @@ export default function ActivityDetail() {
 
   if (isLoadingActivity) return <Typography>Loading...</Typography>
   if (!activity) return <Typography>Activity not found</Typography>
+  if (activity) console.log(activity)
 
   return (
     <Card sx={{ borderRadius: 3 }}>
       <CardMedia
         component="img"
-        src={`./images/categoryImages/${activity.category}.jpg`}
+        src={`../images/categoryImages/${activity.category}.jpg`}
       />
       <CardContent>
         <Typography variant="h5">{activity.title}</Typography>
