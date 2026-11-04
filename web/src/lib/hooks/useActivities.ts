@@ -34,7 +34,8 @@ export const useActivities = (id?: string) => {
 
   const createActivity = useMutation({
     mutationFn: async (activity: Activity) => {
-      await agent.post('/events', activity)
+      const response = await agent.post('/events', activity)
+      return response.data
     },
     onSuccess: async () => {
       await queryClient.invalidateQueries({
