@@ -1,5 +1,42 @@
-import React from 'react'
+import { CalendarToday, Info, Place } from '@mui/icons-material'
+import { Divider, Grid, Paper, Typography } from '@mui/material'
 
-export default function ActivityDetailsInfo() {
-  return <div>ActivityDetailsInfo</div>
+type Props = {
+  activity: Activity
+}
+
+export default function ActivityDetailsInfo({ activity }: Props) {
+  return (
+    <Paper sx={{ mb: 2 }}>
+      <Grid container sx={{ alignItems: 'center', pl: 2, py: 1 }}>
+        <Grid size={1}>
+          <Info color="info" fontSize="large" />
+        </Grid>
+        <Grid size={11}>
+          <Typography>{activity.description}</Typography>
+        </Grid>
+      </Grid>
+      <Divider />
+      <Grid container sx={{ alignItems: 'center', pl: 2, py: 1 }}>
+        <Grid size={1}>
+          <CalendarToday color="info" fontSize="large" />
+        </Grid>
+        <Grid size={11}>
+          <Typography>{activity.date}</Typography>
+        </Grid>
+      </Grid>
+      <Divider />
+
+      <Grid container sx={{ alignItems: 'center', pl: 2, py: 1 }}>
+        <Grid size={1}>
+          <Place color="info" fontSize="large" />
+        </Grid>
+        <Grid size={11}>
+          <Typography>
+            {activity.city}, {activity.venue}
+          </Typography>
+        </Grid>
+      </Grid>
+    </Paper>
+  )
 }
