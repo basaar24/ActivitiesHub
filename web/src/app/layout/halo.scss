@@ -1,0 +1,107 @@
+// Reusable animated gradient-ring "halo" effect.
+// Usage in any *.module.scss:
+//
+//   @use '@/styles/halo' as halo;
+//
+//   .myComponent {
+//     @include halo.halo();
+//   }
+//
+// The mixin adds `position: relative` and an absolutely positioned
+// `::before` ring behind the element, so the element itself needs no
+// extra markup — just apply the class that includes the mixin.
+
+@property --halo-angle {
+	syntax: '<angle>';
+	inherits: false;
+	initial-value: 0deg;
+}
+
+@keyframes halo-spin {
+	to {
+		--halo-angle: 360deg;
+	}
+}
+
+@mixin halo(
+	$colors: (#f65261, #ffd400, #f65261),
+	$ring-width: 2px,
+	$glow-spread: 10px,
+	$glow-blur: 10px,
+	$glow-opacity: 0.65,
+	$radius: 8px,
+	$duration: 3s
+) {
+	position: relative;
+	isolation: isolate;
+
+	&::before,
+	&::after {
+		content: '';
+		position: absolute;
+		border-radius: $radius;
+		background: conic-gradient(from var(--halo-angle), $colors...);
+		animation: halo-spin $duration linear infinite;
+	}
+
+	// crisp rotating gradient outline — gives the effect its edge definition
+	&::before {
+		inset: -$ring-width;
+		z-index: -1;
+		padding: $ring-width;
+		-webkit-mask:
+			linear-gradient(#fff 0 0) content-box,
+			linear-gradient(#fff 0 0);
+		-webkit-mask-composite: xor;
+		mask-composite: exclude;
+	}
+
+	// soft ambient bloom behind the outline — gives the effect its glow
+	&::after {
+		inset: -$glow-spread;
+		z-index: -2;
+		filter: blur($glow-blur);
+		opacity: $glow-opacity;
+	}
+}
+
+// Same effect, but only visible while the element is hovered/focused.
+// The pseudo-elements stay mounted (so the animation never restarts and
+// there's no pop-in) — only their opacity is toggled, with a fade.
+@mixin halo-hover(
+	$colors: (#f65261, #ffd400, #f65261),
+	$ring-width: 2px,
+	$glow-spread: 14px,
+	$glow-blur: 20px,
+	$glow-opacity: 0.65,
+	$radius: 8px,
+	$duration: 6s,
+	$fade-duration: 0.3s
+) {
+	@include halo(
+		$colors: $colors,
+		$ring-width: $ring-width,
+		$glow-spread: $glow-spread,
+		$glow-blur: $glow-blur,
+		$glow-opacity: $glow-opacity,
+		$radius: $radius,
+		$duration: $duration
+	);
+
+	&::before,
+	&::after {
+		opacity: 0;
+		transition: opacity $fade-duration ease-in-out;
+	}
+
+	&:hover,
+	&:focus-within {
+		&::before {
+			opacity: 1;
+		}
+
+		&::after {
+			opacity: $glow-opacity;
+		}
+	}
+}

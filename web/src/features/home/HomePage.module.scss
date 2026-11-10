@@ -1,0 +1,5 @@
+@use '../../app/layout/halo' as halo;
+
+.haloButton {
+  @include halo.halo($radius: 16px);
+}
