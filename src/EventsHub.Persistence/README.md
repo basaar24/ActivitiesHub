@@ -28,7 +28,7 @@ Depends only on `EventsHub.Domain`.
 - **`EventsHub.Api`** registers `AppDbContext` (`AddDbContext` +
   `UseSqlite`) and runs `MigrateAsync()` + `SeedDataAsync` at startup. It
   reaches this project through `EventsHub.Application`.
-- **`tests/EventsHub.UnitTests`** references it directly and builds its own
+- **`tests/EventsHub.Api.UnitTests`** references it directly and builds its own
   `AppDbContext` in `GlobalTestSetup`.
 
 ## Working with migrations
@@ -43,7 +43,7 @@ dotnet ef database update -p src/EventsHub.Persistence -s src/EventsHub.Api
 ```
 
 Both `EventsHub.Api` (on every startup) and
-`tests/EventsHub.UnitTests` (once, in `GlobalTestSetup`) call
+`tests/EventsHub.Api.UnitTests` (once, in `GlobalTestSetup`) call
 `context.Database.MigrateAsync()` themselves — you generally don't need to
 run `database update` manually against those; it's mainly useful for
 inspecting the schema directly.
