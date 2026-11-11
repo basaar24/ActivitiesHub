@@ -8,6 +8,6 @@
   </Folder>
   <Folder Name="/tests/">
     <Project Path="tests/EventsHub.Application.UnitTests/EventsHub.Application.UnitTests.csproj" />
-    <Project Path="tests/EventsHub.UnitTests/EventsHub.UnitTests.csproj" />
+    <Project Path="tests/EventsHub.Api.UnitTests/EventsHub.Api.UnitTests.csproj" />
   </Folder>
 </Solution>

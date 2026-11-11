@@ -14,9 +14,9 @@ EventsHub is a school project (ICI 2026 01): a .NET 10 backend (Clean Architectu
 dotnet build EventsHub.slnx                 # build everything
 dotnet run --project src/EventsHub.Api      # run the API (https://localhost:5001)
 dotnet test tests/EventsHub.Application.UnitTests  # mapper tests (no database, no HTTP)
-dotnet test tests/EventsHub.UnitTests       # controller tests — currently does NOT compile (EventsControllerTests still calls new EventsController(AppDbContext))
-dotnet test tests/EventsHub.UnitTests --filter "FullyQualifiedName~EventsControllerTests"  # single fixture
-dotnet test tests/EventsHub.UnitTests --filter "Name=GetEventDetailAsync_WhenEventDoesntExist_ReturnsNotFound"  # single test
+dotnet test tests/EventsHub.Api.UnitTests       # controller tests — currently does NOT compile (EventsControllerTests still calls new EventsController(AppDbContext))
+dotnet test tests/EventsHub.Api.UnitTests --filter "FullyQualifiedName~EventsControllerTests"  # single fixture
+dotnet test tests/EventsHub.Api.UnitTests --filter "Name=GetEventDetailAsync_WhenEventDoesntExist_ReturnsNotFound"  # single test
 ```
 
 EF Core migrations (project = Persistence, startup = Api):
@@ -67,7 +67,7 @@ Vite + React 19 + MUI 9 + axios, TypeScript. Very early state — `App.tsx` fetc
 
 ### Testing conventions
 
-Unit tests (`tests/EventsHub.UnitTests`) use NUnit, target the Api project's controllers directly (no `WebApplicationFactory`/HTTP layer), and share one SQLite `AppDbContext` seeded once per test run via `[SetUpFixture] GlobalTestSetup` (`OneTimeSetUp`/`OneTimeTearDown`), not per-test. Because the DB and seed data are shared across the whole fixture run, tests read existing seeded rows (e.g. `Events.FirstAsync()`) rather than asserting on hardcoded fixture data — keep new tests in that style so they don't depend on ordering or count assumptions that seeding could invalidate.
+Unit tests (`tests/EventsHub.Api.UnitTests`) use NUnit, target the Api project's controllers directly (no `WebApplicationFactory`/HTTP layer), and share one SQLite `AppDbContext` seeded once per test run via `[SetUpFixture] GlobalTestSetup` (`OneTimeSetUp`/`OneTimeTearDown`), not per-test. Because the DB and seed data are shared across the whole fixture run, tests read existing seeded rows (e.g. `Events.FirstAsync()`) rather than asserting on hardcoded fixture data — keep new tests in that style so they don't depend on ordering or count assumptions that seeding could invalidate.
 
 ## Reference docs
 

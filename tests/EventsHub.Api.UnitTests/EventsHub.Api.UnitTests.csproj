@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\EventsHub.Api\EventsHub.Api.csproj" />
+    <ProjectReference Include="..\..\src\EventsHub.Application\EventsHub.Application.csproj" />
     <ProjectReference Include="..\..\src\EventsHub.Persistence\EventsHub.Persistence.csproj" />
   </ItemGroup>
 

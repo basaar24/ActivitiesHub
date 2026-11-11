@@ -67,14 +67,14 @@ local `eventshub.db` file, created/migrated automatically on startup.
 
 Two separate test setups exist for this project:
 
-- **`tests/EventsHub.UnitTests`** (NUnit) — meant to call controllers
+- **`tests/EventsHub.Api.UnitTests`** (NUnit) — meant to call controllers
   directly in-process against a real (not mocked) SQLite `AppDbContext`
   created and seeded once per run (`[SetUpFixture] GlobalTestSetup`). Tests
   read existing rows (e.g. `Events.FirstAsync()`) instead of asserting
   hardcoded counts/IDs. Run with:
 
   ```powershell
-  dotnet test tests/EventsHub.UnitTests
+  dotnet test tests/EventsHub.Api.UnitTests
   ```
 
   **Currently broken:** `EventsControllerTests` still does
