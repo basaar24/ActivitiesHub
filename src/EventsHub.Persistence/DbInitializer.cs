@@ -6,13 +6,16 @@ public static class DbInitializer
 {
     public static async Task SeedDataAsync(AppDbContext context)
     {
-        if (context.Events.Any()) return;
+        if (context.Events.Any())
+        {
+            return;
+        }
 
         var events = new List<Event>
         {
             new() {
                 Title = "Past Event 1",
-                Date = DateTime.Now.AddMonths(-1),
+                Date = DateTime.UtcNow.AddMonths(-1),
                 Description = "Event 1 months ago",
                 Category = "culture",
                 City = "Tinúm, Yucatán",
@@ -22,7 +25,7 @@ public static class DbInitializer
             },
             new() {
                 Title = "Past Event 2",
-                Date = DateTime.Now.AddMonths(-3),
+                Date = DateTime.UtcNow.AddMonths(-3),
                 Description = "Event 3 months ago",
                 Category = "music",
                 City = "San Juan Teotihuacán, Estado de México",
@@ -32,7 +35,7 @@ public static class DbInitializer
             },
             new() {
                 Title = "Past Event 3",
-                Date = DateTime.Now.AddMonths(-5),
+                Date = DateTime.UtcNow.AddMonths(-5),
                 Description = "Event 5 months ago",
                 Category = "drinks",
                 City = "Ciudad de México",
@@ -42,7 +45,7 @@ public static class DbInitializer
             },
             new() {
                 Title = "Past Event 4",
-                Date = DateTime.Now.AddMonths(-7),
+                Date = DateTime.UtcNow.AddMonths(-7),
                 Description = "Event 7 months ago",
                 Category = "culture",
                 City = "Ciudad de México",
@@ -52,7 +55,7 @@ public static class DbInitializer
             },
             new() {
                 Title = "Past Event 5",
-                Date = DateTime.Now.AddMonths(-9),
+                Date = DateTime.UtcNow.AddMonths(-9),
                 Description = "Event 9 months ago",
                 Category = "music",
                 City = "Cancún, Quintana Roo",
@@ -62,7 +65,7 @@ public static class DbInitializer
             },
             new() {
                 Title = "Future Event 1",
-                Date = DateTime.Now.AddMonths(1),
+                Date = DateTime.UtcNow.AddMonths(1),
                 Description = "Event 1 months in future",
                 Category = "drinks",
                 City = "Guanajuato, Guanajuato",
@@ -72,7 +75,7 @@ public static class DbInitializer
             },
             new() {
                 Title = "Future Event 2",
-                Date = DateTime.Now.AddMonths(2),
+                Date = DateTime.UtcNow.AddMonths(2),
                 Description = "Event 2 months in future",
                 Category = "culture",
                 City = "Ciudad de México",
@@ -82,7 +85,7 @@ public static class DbInitializer
             },
             new() {
                 Title = "Future Event 3",
-                Date = DateTime.Now.AddMonths(4),
+                Date = DateTime.UtcNow.AddMonths(4),
                 Description = "Event 4 months in future",
                 Category = "music",
                 City = "Ciudad de México",
@@ -92,7 +95,7 @@ public static class DbInitializer
             },
             new() {
                 Title = "Future Event 4",
-                Date = DateTime.Now.AddMonths(6),
+                Date = DateTime.UtcNow.AddMonths(6),
                 Description = "Event 6 months in future",
                 Category = "drinks",
                 City = "Tulum, Quintana Roo",
@@ -102,7 +105,7 @@ public static class DbInitializer
             },
             new() {
                 Title = "Future Event 5",
-                Date = DateTime.Now.AddMonths(8),
+                Date = DateTime.UtcNow.AddMonths(8),
                 Description = "Event 8 months in future",
                 Category = "culture",
                 City = "Guadalajara, Jalisco",
