@@ -1,4 +1,3 @@
-using System.Security.Cryptography;
 using EventsHub.Domain;
 using EventsHub.Persistence;
 using MediatR;
@@ -24,7 +23,7 @@ public class GetEventList
                     logger.LogInformation($"Task {i} has completed!");
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 logger.LogInformation("Task was CANCELLED!");
             }
