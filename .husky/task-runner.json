@@ -12,7 +12,7 @@
       "name": "Lint web",
       "group": "pre-commit",
       "command": "npx",
-      "args": ["lint-staged"],
+      "args": ["--loglevel=warn", "lint-staged"],
       "cwd": "web"
     }
   ]
